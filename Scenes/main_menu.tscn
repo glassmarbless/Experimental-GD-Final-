@@ -60,5 +60,6 @@ offset_bottom = 840.0
 theme_override_font_sizes/font_size = 48
 text = "Quit"
 
+[connection signal="pressed" from="Control/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/Settings Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Control/Quit Button" to="." method="_on_quit_button_pressed"]
