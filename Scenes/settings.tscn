@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://b0i3lpqfdlw0v"]
+
+[ext_resource type="Script" uid="uid://cqdhon7wu6d1i" path="res://Scripts/settings.gd" id="1_4geyq"]
+
+[node name="Settings" type="Node2D" unique_id=374255142]
+script = ExtResource("1_4geyq")
+
+[node name="Control" type="Control" parent="." unique_id=1314704108]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Background placeholder" type="ColorRect" parent="Control" unique_id=989321915]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Name" type="Label" parent="Control" unique_id=1034888578]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 62.0
+offset_right = 1086.0
+offset_bottom = 182.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "Settings"
+
+[node name="Settings Holder" type="GridContainer" parent="Control" unique_id=1375286562]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 246.0
+offset_right = 1513.0
+offset_bottom = 874.0
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 80
+columns = 2
+
+[node name="Volume Holder" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1419606887]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Control/Settings Holder/Volume Holder" unique_id=192949581]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Volume"
+
+[node name="Slider Holder" type="HBoxContainer" parent="Control/Settings Holder/Volume Holder" unique_id=1198535447]
+layout_mode = 2
+
+[node name="min" type="Label" parent="Control/Settings Holder/Volume Holder/Slider Holder" unique_id=1309990405]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="Volume Adjust" type="HSlider" parent="Control/Settings Holder/Volume Holder/Slider Holder" unique_id=1591739601]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+rounded = true
+
+[node name="max" type="Label" parent="Control/Settings Holder/Volume Holder/Slider Holder" unique_id=534407645]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100"
+
+[node name="Resolution Holder" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1508350368]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Control/Settings Holder/Resolution Holder" unique_id=416245865]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Resolution"
+
+[node name="Resolution Button" type="OptionButton" parent="Control/Settings Holder/Resolution Holder" unique_id=487232469]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+expand_icon = true
+allow_reselect = true
+
+[node name="Control" type="Control" parent="Control/Settings Holder" unique_id=231601831]
+layout_mode = 2
+
+[node name="Fullscreen Holder" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1464436675]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="Control/Settings Holder/Fullscreen Holder" unique_id=1678481636]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Fullscreen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Settings Holder/Fullscreen Holder" unique_id=2064461160]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Off" type="Label" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=580191165]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Off"
+
+[node name="Fullscreen Button" type="CheckButton" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=328249833]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+expand_icon = true
+
+[node name="On" type="Label" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=625180548]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "On"
+
+[node name="Back Button" type="Button" parent="Control" unique_id=1814467244]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 887.0
+offset_right = 1012.0
+offset_bottom = 983.0
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[connection signal="value_changed" from="Control/Settings Holder/Volume Holder/Slider Holder/Volume Adjust" to="." method="_on_volume_adjust_value_changed"]
+[connection signal="pressed" from="Control/Back Button" to="." method="_on_back_button_pressed"]

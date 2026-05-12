@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c05a2ydv66ip8"]
+
+[ext_resource type="Script" uid="uid://daciq0jxc555u" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[node name="Main Menu" type="Node2D" unique_id=1835588429]
+script = ExtResource("1_28flt")
+
+[node name="Control" type="Control" parent="." unique_id=730816402]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background placeholder" type="ColorRect" parent="Control" unique_id=346038855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="Control" unique_id=1699739500]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 213.0
+offset_right = 1178.5
+offset_bottom = 333.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Game Name"
+
+[node name="Start Button" type="Button" parent="Control" unique_id=1013439617]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 404.0
+offset_right = 1116.0
+offset_bottom = 523.0
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="Settings Button" type="Button" parent="Control" unique_id=29468768]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 564.0
+offset_right = 1116.0
+offset_bottom = 683.0
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="Quit Button" type="Button" parent="Control" unique_id=2077362265]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 721.0
+offset_right = 1116.0
+offset_bottom = 840.0
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[connection signal="pressed" from="Control/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/Quit Button" to="." method="_on_quit_button_pressed"]
