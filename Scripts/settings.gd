@@ -4,6 +4,10 @@ extends Node2D
 @onready var resolution_button = $"Control/Settings Holder/Resolution Holder/Resolution Button"
 @onready var fullscreen_button = $"Control/Settings Holder/Fullscreen Holder/HBoxContainer/Fullscreen Button"
 
+var master_bus = AudioServer.get_bus_index("Master")
+var music_bus = AudioServer.get_bus_index("Music")
+var soundfx_bus = AudioServer.get_bus_index("Soundfx")
+
 var resolutions := {
 	"1280 x 720": Vector2i(1280, 720),
 	"1600 x 900": Vector2i(1600, 900),
@@ -66,10 +70,24 @@ func center_window():
 
 func _on_volume_adjust_value_changed(value: float) -> void:
 	if value == 0:
-		AudioServer.set_bus_volume_db(0, -80)
+		AudioServer.set_bus_volume_db(master_bus, -80)
 	else:
-		AudioServer.set_bus_volume_db(0, linear_to_db(value / 100.0))
-
+		AudioServer.set_bus_volume_db(master_bus, linear_to_db(value / 100.0))
+		
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
+
+func _on_music_adjust_value_changed(value: float) -> void:
+	if value == 0:
+		AudioServer.set_bus_volume_db(music_bus, -80)
+	else:
+		AudioServer.set_bus_volume_db(music_bus, linear_to_db(value / 100.0))
+
+
+func _on_soundfx_adjust_value_changed(value: float) -> void:
+	if value == 0:
+		AudioServer.set_bus_volume_db(soundfx_bus, -80)
+	else:
+		AudioServer.set_bus_volume_db(soundfx_bus, linear_to_db(value / 100.0))
