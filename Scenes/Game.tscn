@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://bxw044socv30y"]
 
+[ext_resource type="PackedScene" uid="uid://biuf4cfiwhutq" path="res://Scenes/BASE WITH WALLS.fbx" id="1_iukft"]
+[ext_resource type="PackedScene" uid="uid://b6kn0rk0qv5k7" path="res://Scenes/Player.tscn" id="2_gl6un"]
+
 [node name="Game" type="Node2D" unique_id=615139604]
+
+[node name="BASE WITH WALLS" parent="." unique_id=488044741 instance=ExtResource("1_iukft")]
+transform = Transform3D(199.4571, 0, 0, 0, 108.91216, 0, 0, 0, 257.04404, -0.2954911, -1.1920929e-07, -0.08309817)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BASE WITH WALLS" unique_id=63540435]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Player" parent="." unique_id=954489223 instance=ExtResource("2_gl6un")]
+transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 2.993182, 2.4738255, -2.6643858)
