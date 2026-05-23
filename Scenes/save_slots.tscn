@@ -50,16 +50,19 @@ theme_override_constants/separation = 80
 [node name="Slot Button" type="Button" parent="Control/VBoxContainer" unique_id=595015642]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 script = ExtResource("2_fpea8")
 
 [node name="Slot Button2" type="Button" parent="Control/VBoxContainer" unique_id=1266375716]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 script = ExtResource("3_fpea8")
 
 [node name="Slot Button3" type="Button" parent="Control/VBoxContainer" unique_id=203944898]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 script = ExtResource("4_fc0cs")
 
 [node name="Back Button" type="Button" parent="Control" unique_id=1184185480]
