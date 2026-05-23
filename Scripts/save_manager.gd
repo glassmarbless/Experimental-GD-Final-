@@ -18,13 +18,11 @@ func create_new_save(slot: int):
 
 	var data = {
 		"slot": slot,
-		"player_name": "Player",
 		"progress": 0,
-		"current_scene": "res://Scenes/MainGame.tscn",
+		"current_scene": "res://Scenes/Game.tscn",
 		"current_position": Vector3(0, 0, 0),
 		"tutorial": false,
 		"unlocked_rooms": [],
-		"unlocked_instruments": [],
 		"unlocked_notes": [],
 		"choices_made": [],
 		"created_time": Time.get_datetime_string_from_system(),

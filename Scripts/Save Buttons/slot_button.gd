@@ -23,4 +23,4 @@ func _on_pressed():
 		get_tree().change_scene_to_file(data["current_scene"])
 	else:
 		SaveManager.create_new_save(slot_number)
-		get_tree().change_scene_to_file("res://Scenes/MainGame.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Game.tscn")

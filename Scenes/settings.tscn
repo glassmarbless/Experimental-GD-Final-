@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0i3lpqfdlw0v"]
 
 [ext_resource type="Script" uid="uid://cqdhon7wu6d1i" path="res://Scripts/settings.gd" id="1_4geyq"]
+[ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="2_i44u3"]
 
 [node name="Settings" type="Node2D" unique_id=374255142]
 script = ExtResource("1_4geyq")
@@ -27,6 +28,7 @@ offset_top = 62.0
 offset_right = 1086.0
 offset_bottom = 182.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 80
 text = "Settings"
 
@@ -46,6 +48,7 @@ size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="Control/Settings Holder/Volume Holder" unique_id=192949581]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "Volume"
 
@@ -54,6 +57,7 @@ layout_mode = 2
 
 [node name="min" type="Label" parent="Control/Settings Holder/Volume Holder/Slider Holder" unique_id=1309990405]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "0"
 
@@ -66,6 +70,7 @@ rounded = true
 
 [node name="max" type="Label" parent="Control/Settings Holder/Volume Holder/Slider Holder" unique_id=534407645]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "100"
 
@@ -75,6 +80,7 @@ size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="Control/Settings Holder/Resolution Holder" unique_id=416245865]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "Resolution"
 
@@ -82,6 +88,7 @@ text = "Resolution"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 expand_icon = true
 allow_reselect = true
@@ -92,6 +99,7 @@ size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="Control/Settings Holder/Volume Holder2" unique_id=2094031048]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "Music"
 
@@ -100,6 +108,7 @@ layout_mode = 2
 
 [node name="min" type="Label" parent="Control/Settings Holder/Volume Holder2/Slider Holder" unique_id=2030769258]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "0"
 
@@ -112,6 +121,7 @@ rounded = true
 
 [node name="max" type="Label" parent="Control/Settings Holder/Volume Holder2/Slider Holder" unique_id=1934620272]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "100"
 
@@ -121,6 +131,7 @@ size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="Control/Settings Holder/Fullscreen Holder" unique_id=1678481636]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "Fullscreen"
 
@@ -130,6 +141,7 @@ theme_override_constants/separation = 20
 
 [node name="Off" type="Label" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=580191165]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "Off"
 
@@ -140,6 +152,7 @@ expand_icon = true
 
 [node name="On" type="Label" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=625180548]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "On"
 
@@ -157,6 +170,7 @@ layout_mode = 2
 
 [node name="min" type="Label" parent="Control/Settings Holder/Volume Holder3/Slider Holder" unique_id=59304797]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "0"
 
@@ -169,6 +183,7 @@ rounded = true
 
 [node name="max" type="Label" parent="Control/Settings Holder/Volume Holder3/Slider Holder" unique_id=1836560335]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
 text = "100"
 

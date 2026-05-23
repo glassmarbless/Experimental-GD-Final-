@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ble8o70npsina"]
+
+[ext_resource type="Script" uid="uid://bj5gpq5aw1nr7" path="res://Scripts/pause_menu.gd" id="1_1och7"]
+[ext_resource type="Texture2D" uid="uid://fsat4mxexlyu" path="res://Assets/UI/buttons/play (1).png" id="1_k0w1u"]
+[ext_resource type="Texture2D" uid="uid://c0vs3dcf6p3vo" path="res://Assets/UI/buttons/play_hover.png" id="2_1och7"]
+
+[node name="Pause Menu" type="CanvasLayer" unique_id=194280544]
+script = ExtResource("1_1och7")
+
+[node name="Panel" type="Panel" parent="." unique_id=1815103610]
+offset_left = 568.0
+offset_top = 222.0
+offset_right = 1196.0
+offset_bottom = 833.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1244486995]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume Button" type="TextureButton" parent="Panel/VBoxContainer" unique_id=54573881]
+layout_mode = 2
+texture_normal = ExtResource("1_k0w1u")
+texture_hover = ExtResource("2_1och7")
