@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co4on1f30w51p" path="res://Scripts/save_slots.gd" id="1_d2lhe"]
 [ext_resource type="Script" uid="uid://c728h1m2sw83p" path="res://Scripts/Save Buttons/slot_button.gd" id="2_fpea8"]
+[ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="2_gfec3"]
 [ext_resource type="Script" uid="uid://b5kag5fu5kxta" path="res://Scripts/Save Buttons/slot_button_2.gd" id="3_fpea8"]
 [ext_resource type="Script" uid="uid://yr1ntpr60s3d" path="res://Scripts/Save Buttons/slot_button_3.gd" id="4_fc0cs"]
 
@@ -24,11 +25,12 @@ grow_vertical = 2
 
 [node name="Name" type="Label" parent="Control" unique_id=1635116100]
 layout_mode = 0
-offset_left = 742.0
-offset_top = 93.0
-offset_right = 1240.5
-offset_bottom = 213.0
+offset_left = 709.0
+offset_top = 87.0
+offset_right = 1207.5
+offset_bottom = 207.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 80
 text = "Save Slots"
 
@@ -50,18 +52,21 @@ theme_override_constants/separation = 80
 [node name="Slot Button" type="Button" parent="Control/VBoxContainer" unique_id=595015642]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
 script = ExtResource("2_fpea8")
 
 [node name="Slot Button2" type="Button" parent="Control/VBoxContainer" unique_id=1266375716]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
 script = ExtResource("3_fpea8")
 
 [node name="Slot Button3" type="Button" parent="Control/VBoxContainer" unique_id=203944898]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
 script = ExtResource("4_fc0cs")
 
@@ -71,6 +76,7 @@ offset_left = 855.0
 offset_top = 887.0
 offset_right = 1089.0
 offset_bottom = 983.0
+theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 36
 text = "Back"
 

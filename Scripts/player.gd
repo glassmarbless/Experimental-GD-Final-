@@ -19,6 +19,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if get_tree().paused:
+		return
+		
 	var viewport_size := get_viewport().get_visible_rect().size
 	var mouse_pos := get_viewport().get_mouse_position()
 
@@ -40,6 +43,9 @@ func _process(delta: float) -> void:
 	camera.rotation.x = current_pitch
 
 func _physics_process(delta: float) -> void:
+	if get_tree().paused:
+		return
+		
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 

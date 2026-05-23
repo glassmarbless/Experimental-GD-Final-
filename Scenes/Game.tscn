@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://bxw044socv30y"]
 
+[ext_resource type="Script" uid="uid://d1upp8vk84mlg" path="res://Scripts/game.gd" id="1_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://biuf4cfiwhutq" path="res://Scenes/BASE WITH WALLS.fbx" id="1_iukft"]
 [ext_resource type="PackedScene" uid="uid://b6kn0rk0qv5k7" path="res://Scenes/Player.tscn" id="2_gl6un"]
+[ext_resource type="Texture2D" uid="uid://fsat4mxexlyu" path="res://Assets/UI/buttons/play (1).png" id="3_kldst"]
+[ext_resource type="Texture2D" uid="uid://c0vs3dcf6p3vo" path="res://Assets/UI/buttons/play_hover.png" id="4_b2bpf"]
+[ext_resource type="Texture2D" uid="uid://bitdrywopb41p" path="res://Assets/UI/buttons/quit (1).png" id="6_fgofq"]
+[ext_resource type="Texture2D" uid="uid://sr7kjsyedvr2" path="res://Assets/UI/buttons/quit_hover.png" id="7_2irst"]
+[ext_resource type="Texture2D" uid="uid://x2r2slnawhrh" path="res://Assets/Art/in game/HUDtransparent.png" id="8_2irst"]
 
 [node name="Game" type="Node2D" unique_id=615139604]
+process_mode = 3
+script = ExtResource("1_b2bpf")
 
 [node name="BASE WITH WALLS" parent="." unique_id=488044741 instance=ExtResource("1_iukft")]
 transform = Transform3D(199.4571, 0, 0, 0, 108.91216, 0, 0, 0, 257.04404, -0.2954911, -1.1920929e-07, -0.08309817)
@@ -13,3 +21,55 @@ transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=954489223 instance=ExtResource("2_gl6un")]
 transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 2.993182, 2.4738255, -2.6643858)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=892845679]
+
+[node name="HUD" type="Control" parent="UI" unique_id=1912013657]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD" unique_id=1613285110]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_2irst")
+
+[node name="Pause Panel" type="Control" parent="UI" unique_id=1391661409]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause Panel" unique_id=1695617176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 541.0
+offset_top = 222.0
+offset_right = -689.0
+offset_bottom = -334.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume Button" type="TextureButton" parent="UI/Pause Panel/VBoxContainer" unique_id=1929560100]
+layout_mode = 2
+texture_normal = ExtResource("3_kldst")
+texture_hover = ExtResource("4_b2bpf")
+
+[node name="Quit Button" type="TextureButton" parent="UI/Pause Panel/VBoxContainer" unique_id=1121512238]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_fgofq")
+texture_hover = ExtResource("7_2irst")
+
+[connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
