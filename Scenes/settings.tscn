@@ -37,7 +37,7 @@ offset_top = 246.0
 offset_right = 1513.0
 offset_bottom = 874.0
 theme_override_constants/h_separation = 150
-theme_override_constants/v_separation = 80
+theme_override_constants/v_separation = 50
 columns = 2
 
 [node name="Volume Holder" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1419606887]
@@ -86,13 +86,38 @@ theme_override_font_sizes/font_size = 36
 expand_icon = true
 allow_reselect = true
 
-[node name="Control" type="Control" parent="Control/Settings Holder" unique_id=231601831]
+[node name="Volume Holder2" type="VBoxContainer" parent="Control/Settings Holder" unique_id=955827085]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Control/Settings Holder/Volume Holder2" unique_id=2094031048]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Music"
+
+[node name="Slider Holder" type="HBoxContainer" parent="Control/Settings Holder/Volume Holder2" unique_id=894314499]
+layout_mode = 2
+
+[node name="min" type="Label" parent="Control/Settings Holder/Volume Holder2/Slider Holder" unique_id=2030769258]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="Music Adjust" type="HSlider" parent="Control/Settings Holder/Volume Holder2/Slider Holder" unique_id=362244912]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+rounded = true
+
+[node name="max" type="Label" parent="Control/Settings Holder/Volume Holder2/Slider Holder" unique_id=1934620272]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100"
 
 [node name="Fullscreen Holder" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1464436675]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Name" type="Label" parent="Control/Settings Holder/Fullscreen Holder" unique_id=1678481636]
 layout_mode = 2
@@ -118,6 +143,35 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "On"
 
+[node name="Volume Holder3" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1212304010]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Control/Settings Holder/Volume Holder3" unique_id=14822900]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Sound Effects"
+
+[node name="Slider Holder" type="HBoxContainer" parent="Control/Settings Holder/Volume Holder3" unique_id=1473478909]
+layout_mode = 2
+
+[node name="min" type="Label" parent="Control/Settings Holder/Volume Holder3/Slider Holder" unique_id=59304797]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="Soundfx Adjust" type="HSlider" parent="Control/Settings Holder/Volume Holder3/Slider Holder" unique_id=1072237230]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+rounded = true
+
+[node name="max" type="Label" parent="Control/Settings Holder/Volume Holder3/Slider Holder" unique_id=1836560335]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "100"
+
 [node name="Back Button" type="Button" parent="Control" unique_id=1814467244]
 layout_mode = 0
 offset_left = 778.0
@@ -128,4 +182,6 @@ theme_override_font_sizes/font_size = 36
 text = "Back"
 
 [connection signal="value_changed" from="Control/Settings Holder/Volume Holder/Slider Holder/Volume Adjust" to="." method="_on_volume_adjust_value_changed"]
+[connection signal="value_changed" from="Control/Settings Holder/Volume Holder2/Slider Holder/Music Adjust" to="." method="_on_music_adjust_value_changed"]
+[connection signal="value_changed" from="Control/Settings Holder/Volume Holder3/Slider Holder/Soundfx Adjust" to="." method="_on_soundfx_adjust_value_changed"]
 [connection signal="pressed" from="Control/Back Button" to="." method="_on_back_button_pressed"]
