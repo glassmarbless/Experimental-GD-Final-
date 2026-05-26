@@ -34,7 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(72.99519, 55.632534)
+scale = Vector2(0.99750954, 0.9947267)
 theme_override_styles/panel = SubResource("StyleBoxFlat_71axn")
 
 [node name="Label" type="Label" parent="NumberOverlay/Panel" unique_id=785999928]
@@ -74,43 +74,40 @@ scale = Vector2(2.1096945, 1.7090584)
 
 [node name="Line1" type="ColorRect" parent="NumberOverlay/Panel/StaffLines" unique_id=1686249593]
 layout_mode = 0
-offset_left = 9.791405
-offset_top = 12.600006
-offset_right = 709.7914
-offset_bottom = 15.600006
-scale = Vector2(0.38666287, 1.2186285)
+offset_left = 100.0
+offset_top = 120.0
+offset_right = 800.0
+offset_bottom = 123.0
+scale = Vector2(1.0018492, 1)
 
 [node name="Line2" type="ColorRect" parent="NumberOverlay/Panel/StaffLines" unique_id=1129992914]
 layout_mode = 0
-offset_left = 9.791405
-offset_top = 42.600006
-offset_right = 709.7914
-offset_bottom = 45.600006
-scale = Vector2(0.38666287, 1.2186285)
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 800.0
+offset_bottom = 153.0
+scale = Vector2(1.0018492, 1)
 
 [node name="Line3" type="ColorRect" parent="NumberOverlay/Panel/StaffLines" unique_id=590034442]
 layout_mode = 0
-offset_left = 9.791412
-offset_top = 72.600006
-offset_right = 709.7914
-offset_bottom = 75.600006
-scale = Vector2(0.38594916, 1.2186285)
+offset_left = 100.0
+offset_top = 180.0
+offset_right = 800.0
+offset_bottom = 183.0
 
 [node name="Line4" type="ColorRect" parent="NumberOverlay/Panel/StaffLines" unique_id=1207589064]
 layout_mode = 0
-offset_left = 9.791412
-offset_top = 102.600006
-offset_right = 709.7914
-offset_bottom = 105.600006
-scale = Vector2(0.38594916, 1.2186285)
+offset_left = 100.0
+offset_top = 210.0
+offset_right = 800.0
+offset_bottom = 213.0
 
 [node name="Line5" type="ColorRect" parent="NumberOverlay/Panel/StaffLines" unique_id=485476218]
 layout_mode = 0
-offset_left = 9.791412
-offset_top = 132.6
-offset_right = 709.7914
-offset_bottom = 135.6
-scale = Vector2(0.38594916, 1.2186285)
+offset_left = 100.0
+offset_top = 240.0
+offset_right = 800.0
+offset_bottom = 243.0
 
 [node name="NotesLayer" type="Control" parent="NumberOverlay/Panel" unique_id=1326128844]
 anchors_preset = 0
