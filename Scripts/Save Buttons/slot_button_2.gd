@@ -9,10 +9,10 @@ func _ready():
 
 func update_button_text():
 	if SaveManager.save_exists(slot_number):
-		text = "Load Slot %d" % slot_number
+		var data = SaveManager.load_game(slot_number)
+		text = "Load Slot %d\n%s" % [slot_number, data["last_save_time"]]
 	else:
 		text = "New Game Slot %d" % slot_number
-
 
 func _on_pressed():
 	if SaveManager.save_exists(slot_number):

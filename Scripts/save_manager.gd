@@ -21,13 +21,34 @@ func create_new_save(slot: int):
 		"player_name": "Player",
 		"progress": 0,
 		"current_scene": "res://Scenes/MainGame.tscn",
+		"current_position": Vector3(0, 0, 0),
+		"tutorial": false,
 		"unlocked_rooms": [],
+		"unlocked_instruments": [],
+		"unlocked_notes": [],
 		"choices_made": [],
-		"created_time": Time.get_datetime_string_from_system()
+		"created_time": Time.get_datetime_string_from_system(),
+		"last_save_time": get_formatted_time()
 	}
 
 	save_game(slot, data)
 
+func get_formatted_time() -> String:
+	var datetime := Time.get_datetime_dict_from_system()
+
+	var day = datetime["day"]
+	var month = datetime["month"]
+	var year = datetime["year"]
+	var hour = datetime["hour"]
+	var minute = datetime["minute"]
+
+	return "%02d/%02d/%04d %02d:%02d" % [
+		day,
+		month,
+		year,
+		hour,
+		minute
+	]
 
 func save_game(slot: int, data: Dictionary):
 	var file = FileAccess.open(get_save_path(slot), FileAccess.WRITE)
