@@ -54,21 +54,18 @@ func _ready() -> void:
 	spell_display.text = ""
 
 
-<<<<<<< HEAD
 func _process(delta: float) -> void:
 	if get_tree().paused:
 		return
 		
 	var viewport_size := get_viewport().get_visible_rect().size
 	var mouse_pos := get_viewport().get_mouse_position()
-=======
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if not spell_book_open:
 			yaw -= event.relative.x * look_sensitivity
 			pitch -= event.relative.y * look_sensitivity
 			pitch = clamp(pitch, -80.0, 80.0)
->>>>>>> Music-player-and-Interactions
 
 			rotation_degrees.y = yaw
 			camera.rotation_degrees.x = pitch
