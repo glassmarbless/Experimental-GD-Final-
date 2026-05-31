@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var notes_layer: Control = $Panel/NotesLayer
 @onready var spell_display: Label = $Panel/SpellDisplay
 
-@onready var audio_players = {
+ @onready var audio_players = {
 	1: $Audio1,
 	2: $Audio2,
 	3: $Audio3,
@@ -12,17 +12,19 @@ extends CanvasLayer
 	5: $Audio5,
 	6: $Audio6,
 	7: $Audio7,
-	8: $Audio8
+	#8: $Audio8
 }
 
 var is_open: bool = false
 var pressed_numbers: Array[int] = []
 
 var spells := {
+	 
 	"1234": "Spell 1",
 	"5678": "Spell 2",
 	"1111": "Spell 3",
 	"2468": "Spell 4"
+	
 }
 
 
