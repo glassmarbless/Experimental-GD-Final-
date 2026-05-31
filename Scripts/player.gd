@@ -1,5 +1,6 @@
 extends CharacterBody3D
-
+ 
+@onready var alien: AnimatedSprite3D = get_tree().get_first_node_in_group("alien")
 @export var move_speed: float = 6.0
 @export var jump_velocity: float = 4.5
 @export var look_sensitivity: float = 0.15
@@ -37,7 +38,7 @@ var staff_gap: float = 45.0
 
 var spells := {
 	"1234": "Spell 1",
-	"5678": "Spell 2",
+	"2222": "Spell 2",
 	"1111": "Spell 3",
 	"2468": "Spell 4",
 	"8765": "Spell 5"
@@ -183,7 +184,7 @@ func get_note_y(number: int) -> float:
 
 	return positions[number] - 40
 
-func check_spell() -> void:
+func check_spell() -> void: 
 	if pressed_numbers.size() < 4:
 		return
 
@@ -199,6 +200,12 @@ func check_spell() -> void:
 
 		if spell_name == "Spell 1":
 			get_tree().call_group("spell_door", "toggle_door")
+			
+		if spell_name == "Spell 2":
+			if alien:
+				alien.flash_alien_color(Color.RED,1.5)
+			else:
+				print("Alien not found")
 
 	else:
 		spell_display.text = ""

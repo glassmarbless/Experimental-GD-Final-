@@ -2,6 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6kn0rk0qv5k7" path="res://Scenes/Player.tscn" id="2_gl6un"]
 [ext_resource type="Script" uid="uid://dy0nbp4qyb1vs" path="res://Scripts/Door.gd" id="3_j5yw3"]
+[ext_resource type="Texture2D" uid="uid://docn5x8ort4i2" path="res://Assets/Art/in game/alien/frames/alien (1).PNG" id="4_87gmd"]
+[ext_resource type="Texture2D" uid="uid://1algf1cbqgfl" path="res://Assets/Art/in game/alien/frames/alien (2).PNG" id="5_wn3eo"]
+[ext_resource type="Texture2D" uid="uid://crifp13258442" path="res://Assets/Art/in game/alien/frames/alien (3).PNG" id="6_igmvf"]
+[ext_resource type="Texture2D" uid="uid://dgi4k2pivjmu5" path="res://Assets/Art/in game/alien/frames/alien (4).PNG" id="7_m1xr4"]
+[ext_resource type="Texture2D" uid="uid://2hyyc6wqpqlo" path="res://Assets/Art/in game/alien/frames/alien (5).PNG" id="8_wk4wq"]
+[ext_resource type="Script" uid="uid://c2fpwwcgnmxkv" path="res://Scripts/Alien.gd" id="9_knj11"]
 [ext_resource type="PackedScene" uid="uid://kxu02pg2bblt" path="res://Assets/Art/Map/added doorways test.fbx" id="11_dahhg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gl6un"]
@@ -9,6 +15,29 @@
 [sub_resource type="BoxMesh" id="BoxMesh_j5yw3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gl6un"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wj3oi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_87gmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wn3eo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_igmvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m1xr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wk4wq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Game" type="Node2D" unique_id=615139604]
 
@@ -28,3 +57,12 @@ mesh = SubResource("BoxMesh_j5yw3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=1955154610]
 shape = SubResource("BoxShape3D_gl6un")
+
+[node name="Alien" type="AnimatedSprite3D" parent="." unique_id=1164624801 groups=["alien"]]
+transform = Transform3D(0.8580581, 0, 0, 0, 0.71655476, 0, 0, 0, 1, 14.469164, 3.221173, 9.258552)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_wj3oi")
+frame = 4
+frame_progress = 1.0
+script = ExtResource("9_knj11")
+player_path = NodePath("../Player")

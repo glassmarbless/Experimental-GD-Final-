@@ -50,10 +50,7 @@ process_mode = 3
 script = ExtResource("1_b2bpf")
 
 [node name="Player" parent="." unique_id=954489223 instance=ExtResource("2_gl6un")]
-transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 15.181721, 4.034731, 0.053027153)
-
-[node name="added doorways test" parent="." unique_id=1969685530 instance=ExtResource("11_dahhg")]
-transform = Transform3D(227.1994, 0, 0, 0, 209.58757, 0, 0, 0, 215.4524, 0, 0.592, 0)
+transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 13.915741, 4.034731, 0.053027153)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=892845679]
 
@@ -121,6 +118,13 @@ sprite_frames = SubResource("SpriteFrames_tfod6")
 frame_progress = 0.8694007
 script = ExtResource("11_3so38")
 player_path = NodePath("../Player")
+
+[node name="added doorways test2" parent="." unique_id=1829702726 instance=ExtResource("11_dahhg")]
+transform = Transform3D(227.1994, 0, 0, 0, 209.58757, 0, 0, 0, 215.4524, 0, 0.592, 0)
+visible = false
+
+[node name="added doorways test" parent="." unique_id=2089949022 instance=ExtResource("11_dahhg")]
+transform = Transform3D(227.1994, 0, 0, 0, 209.58757, 0, 0, 0, 215.4524, 0, 0.592, 0)
 
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
