@@ -1,10 +1,31 @@
 [gd_scene format=3 uid="uid://b6kn0rk0qv5k7"]
 
 [ext_resource type="Script" uid="uid://cp3jt27rch6pv" path="res://Scripts/player.gd" id="1_rpqav"]
+[ext_resource type="PackedScene" uid="uid://cwgg6mhvnwoj" path="res://assets/TEMP ART (NOTE REMOVE THIS ONECE MERGED)/instrument.fbx" id="2_kyqiw"]
+[ext_resource type="AudioStream" uid="uid://xb1el86ahdb3" path="res://assets/Audio/Notes/freesound_community-gockenspiel_a-102771.mp3" id="3_megsn"]
+[ext_resource type="Script" uid="uid://cvfuius4jvsf5" path="res://Scripts/Music.gd" id="3_yoq75"]
+[ext_resource type="AudioStream" uid="uid://khevrodvqemb" path="res://assets/Audio/Notes/Firefly_audio_B_note_from_woodwind_instrument_variation4.wav" id="4_yoq75"]
+[ext_resource type="AudioStream" uid="uid://dnxij1nb1pg4i" path="res://assets/Audio/Notes/Piano Note C Sound Effect.mp3" id="5_ksbbd"]
+[ext_resource type="AudioStream" uid="uid://dxq1r6e63ya08" path="res://assets/Audio/Notes/Firefly_audio_D_note_from_instrument_variation2.wav" id="6_glx4g"]
+[ext_resource type="AudioStream" uid="uid://bxsqutscku1se" path="res://assets/Audio/Notes/Firefly_audio_E_note_from_instrument_variation2.wav" id="7_miouo"]
+[ext_resource type="AudioStream" uid="uid://di6rcdve2o710" path="res://assets/Audio/Notes/Firefly_audio_F_note_from_synth_instrument_variation4.wav" id="8_o3h8g"]
+[ext_resource type="AudioStream" uid="uid://b6w71x7if35xd" path="res://assets/Audio/Notes/Firefly_audio_G_note_from_synth_instrument_variation4.wav" id="9_1e7my"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qbkls"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rpqav"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yoq75"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ksbbd"]
+viewport_path = NodePath("Player/Camera3D/SpellBookHolder/ScreenViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glx4g"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ksbbd")
 
 [node name="Player" type="Node3D" unique_id=954489223]
 
@@ -19,3 +40,110 @@ mesh = SubResource("CapsuleMesh_rpqav")
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=732049327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18, 0)
+
+[node name="SpellBookHolder" type="Node3D" parent="Player/Camera3D" unique_id=609235449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18, 0)
+
+[node name="ScreenMesh" type="MeshInstance3D" parent="Player/Camera3D/SpellBookHolder" unique_id=667305391]
+transform = Transform3D(0.58551884, 0, 0, 0, 0.41340184, 0, 0, 0, 0.9999993, -0.022968411, 1.351571, -0.6340684)
+mesh = SubResource("QuadMesh_yoq75")
+surface_material_override/0 = SubResource("StandardMaterial3D_glx4g")
+
+[node name="instrument" parent="Player/Camera3D/SpellBookHolder" unique_id=201476531 instance=ExtResource("2_kyqiw")]
+transform = Transform3D(1.3080734, 0, 0, 0, -6.2841195e-08, -1.4269508, 0, 1.437639, -6.2374e-08, -0.021538273, 1.1709976, -0.7885654)
+
+[node name="ScreenViewport" type="SubViewport" parent="Player/Camera3D/SpellBookHolder" unique_id=1899853634]
+size = Vector2i(1024, 512)
+render_target_update_mode = 4
+
+[node name="NumberOverlay2D" type="Control" parent="Player/Camera3D/SpellBookHolder/ScreenViewport" unique_id=238357012]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yoq75")
+
+[node name="Background" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D" unique_id=1114780558]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 512.0
+
+[node name="StaffLines" type="Control" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D" unique_id=2093146908]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line8" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/StaffLines" unique_id=1104114256]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 0
+offset_right = 824.0
+offset_bottom = 170.0
+
+[node name="Line7" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/StaffLines" unique_id=717792646]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line6" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/StaffLines" unique_id=1285920086]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line5" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/StaffLines" unique_id=646771233]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line4" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/StaffLines" unique_id=1346036585]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line3" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/StaffLines" unique_id=1476763499]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line2" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/StaffLines" unique_id=194686536]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line1" type="ColorRect" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/StaffLines" unique_id=1428825655]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NotesLayer" type="Control" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D" unique_id=225382348]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SpellDisplay" type="Label" parent="Player/Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D" unique_id=544002163]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TEST"
+
+[node name="Audio1" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=357333731]
+stream = ExtResource("3_megsn")
+
+[node name="Audio2" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1610900317]
+stream = ExtResource("4_yoq75")
+
+[node name="Audio3" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1035227329]
+stream = ExtResource("5_ksbbd")
+
+[node name="Audio4" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1401129322]
+stream = ExtResource("6_glx4g")
+
+[node name="Audio5" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1319410588]
+stream = ExtResource("7_miouo")
+
+[node name="Audio6" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=873414613]
+stream = ExtResource("8_o3h8g")
+
+[node name="Audio7" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1530064373]
+stream = ExtResource("9_1e7my")

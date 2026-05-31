@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bxw044socv30y"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://d1upp8vk84mlg" path="res://Scripts/game.gd" id="1_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://biuf4cfiwhutq" path="res://Scenes/BASE WITH WALLS.fbx" id="1_iukft"]
 [ext_resource type="PackedScene" uid="uid://b6kn0rk0qv5k7" path="res://Scenes/Player.tscn" id="2_gl6un"]
@@ -8,18 +9,24 @@
 [ext_resource type="Texture2D" uid="uid://bitdrywopb41p" path="res://Assets/UI/buttons/quit (1).png" id="6_fgofq"]
 [ext_resource type="Texture2D" uid="uid://sr7kjsyedvr2" path="res://Assets/UI/buttons/quit_hover.png" id="7_2irst"]
 [ext_resource type="Texture2D" uid="uid://x2r2slnawhrh" path="res://Assets/Art/in game/HUDtransparent.png" id="8_2irst"]
+=======
+[ext_resource type="PackedScene" uid="uid://b6kn0rk0qv5k7" path="res://Scenes/Player.tscn" id="2_gl6un"]
+[ext_resource type="Script" uid="uid://dy0nbp4qyb1vs" path="res://Scripts/Door.gd" id="3_j5yw3"]
+[ext_resource type="PackedScene" uid="uid://kxu02pg2bblt" path="res://assets/Map/added doorways test.fbx" id="11_dahhg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gl6un"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j5yw3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gl6un"]
+>>>>>>> Music-player-and-Interactions
 
 [node name="Game" type="Node2D" unique_id=615139604]
 process_mode = 3
 script = ExtResource("1_b2bpf")
 
-[node name="BASE WITH WALLS" parent="." unique_id=488044741 instance=ExtResource("1_iukft")]
-transform = Transform3D(199.4571, 0, 0, 0, 108.91216, 0, 0, 0, 257.04404, -0.2954911, -1.1920929e-07, -0.08309817)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BASE WITH WALLS" unique_id=63540435]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="Player" parent="." unique_id=954489223 instance=ExtResource("2_gl6un")]
+<<<<<<< HEAD
 transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 2.993182, 2.4738255, -2.6643858)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=892845679]
@@ -73,3 +80,20 @@ texture_hover = ExtResource("7_2irst")
 
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+=======
+transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 15.181721, 4.034731, 0.053027153)
+
+[node name="added doorways test" parent="." unique_id=465934426 instance=ExtResource("11_dahhg")]
+transform = Transform3D(227.1994, 0, 0, 0, 209.58757, 0, 0, 0, 215.4524, 0, 0.592, 0)
+
+[node name="Door" type="StaticBody3D" parent="." unique_id=664750321 groups=["spell_door"]]
+transform = Transform3D(1, 0, 0, 0, -5.7199664, 0, 0, 0, 10.59586, 10.813436, 3.76958, 0.9461789)
+physics_material_override = SubResource("PhysicsMaterial_gl6un")
+script = ExtResource("3_j5yw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door" unique_id=976259378]
+mesh = SubResource("BoxMesh_j5yw3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=1955154610]
+shape = SubResource("BoxShape3D_gl6un")
+>>>>>>> Music-player-and-Interactions
