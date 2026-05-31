@@ -8,13 +8,42 @@
 [ext_resource type="Texture2D" uid="uid://840ypgas4kb8" path="res://Assets/UI/buttons/quit (1).png" id="6_fgofq"]
 [ext_resource type="Texture2D" uid="uid://c3yb06x87mqjt" path="res://Assets/UI/buttons/quit_hover.png" id="7_2irst"]
 [ext_resource type="Texture2D" uid="uid://x2r2slnawhrh" path="res://Assets/Art/in game/HUDtransparent.png" id="8_2irst"]
+[ext_resource type="Texture2D" uid="uid://docn5x8ort4i2" path="res://Assets/Art/in game/alien/frames/alien (1).PNG" id="10_acvyw"]
+[ext_resource type="Script" uid="uid://c2fpwwcgnmxkv" path="res://Scripts/Alien.gd" id="11_3so38"]
+[ext_resource type="Texture2D" uid="uid://1algf1cbqgfl" path="res://Assets/Art/in game/alien/frames/alien (2).PNG" id="11_alh3a"]
 [ext_resource type="PackedScene" uid="uid://kxu02pg2bblt" path="res://Assets/Art/Map/added doorways test.fbx" id="11_dahhg"]
+[ext_resource type="Texture2D" uid="uid://crifp13258442" path="res://Assets/Art/in game/alien/frames/alien (3).PNG" id="12_4q8tf"]
+[ext_resource type="Texture2D" uid="uid://dgi4k2pivjmu5" path="res://Assets/Art/in game/alien/frames/alien (4).PNG" id="13_x3xnh"]
+[ext_resource type="Texture2D" uid="uid://2hyyc6wqpqlo" path="res://Assets/Art/in game/alien/frames/alien (5).PNG" id="14_8r6kd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bf53h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_71axn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dahhg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfod6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_acvyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_alh3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4q8tf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x3xnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8r6kd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Game" type="Node2D" unique_id=615139604]
 process_mode = 3
@@ -85,6 +114,13 @@ mesh = SubResource("BoxMesh_71axn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=404366505]
 shape = SubResource("BoxShape3D_dahhg")
+
+[node name="Alien" type="AnimatedSprite3D" parent="." unique_id=2043272363]
+transform = Transform3D(0.8580581, 0, 0, 0, 0.71655476, 0, 0, 0, 1, 14.469164, 3.221173, 9.258552)
+sprite_frames = SubResource("SpriteFrames_tfod6")
+frame_progress = 0.8694007
+script = ExtResource("11_3so38")
+player_path = NodePath("../Player")
 
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
