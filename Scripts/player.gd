@@ -79,27 +79,53 @@ func _process(delta: float) -> void:
 	#else:
 		 #print("Ray is not hitting anything")
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		if not spell_book_open:
-			yaw -= event.relative.x * look_sensitivity
-			pitch -= event.relative.y * look_sensitivity
-			pitch = clamp(pitch, -80.0, 80.0)
-
-			rotation_degrees.y = yaw
-			camera.rotation_degrees.x = pitch
 
 	if event.is_action_pressed("open_menu"):
 		toggle_spell_book()
 		return
 
 	if not spell_book_open:
+
+		var viewport_size := get_viewport().get_visible_rect().size
+		var mouse_pos := get_viewport().get_mouse_position()
+
+		var center := viewport_size / 2.0
+		var offset := mouse_pos - center
+
+		var dead_zone := 360.0
+		var turn_speed := 140.0
+
+		if abs(offset.x) > dead_zone:
+
+			var strength = (abs(offset.x) - dead_zone) / center.x
+			strength = clamp(strength,0.0,1.0)
+
+			if offset.x > 0:
+				yaw -= turn_speed * strength * get_process_delta_time()
+			else:
+				yaw += turn_speed * strength * get_process_delta_time()
+
+		if abs(offset.y) > dead_zone:
+
+			var strength = (abs(offset.y) - dead_zone) / center.y
+			strength = clamp(strength,0.0,1.0)
+
+			if offset.y > 0:
+				pitch -= turn_speed * strength * get_process_delta_time()
+			else:
+				pitch += turn_speed * strength * get_process_delta_time()
+
+		pitch = clamp(pitch,-60,60)
+
+		rotation_degrees.y = yaw
+		camera.rotation_degrees.x = pitch
+
+	if not spell_book_open:
 		return
 
-	for i in range(1, 9):
+	for i in range(1,9):
 		if event.is_action_pressed("number_%d" % i):
 			add_number(i)
-
-
 func _physics_process(delta: float) -> void:
 	if get_tree().paused:
 		return

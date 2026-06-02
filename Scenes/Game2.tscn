@@ -57,7 +57,6 @@ animations = [{
 visible = false
 
 [node name="ShaderTest" type="CanvasLayer" parent="." unique_id=286054974]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="ShaderTest" unique_id=1229543562]
 material = SubResource("ShaderMaterial_igmvf")

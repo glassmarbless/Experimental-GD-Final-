@@ -1,0 +1,101 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cgyhjflqpavyv"
+path="res://.godot/imported/oh my goodness me.fbx-4a734c81d53168168e11986cbe4aa5a9.scn"
+
+[deps]
+
+source_file="res://Assets/Art/Map/oh my goodness me.fbx"
+dest_files=["res://.godot/imported/oh my goodness me.fbx-4a734c81d53168168e11986cbe4aa5a9.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:MAIN_FLOOR": {
+"generate/physics": true
+},
+"PATH:base_ship": {
+"generate/physics": true
+},
+"PATH:storae/box_": {
+"generate/physics": true
+},
+"PATH:storae/box_1": {
+"generate/physics": true
+},
+"PATH:storae/box_2": {
+"generate/physics": true
+},
+"PATH:storae/group2/table_shelf": {
+"generate/physics": true
+},
+"PATH:storae/group2/table_shelf1": {
+"generate/physics": true
+},
+"PATH:storae/group2/table_shelf2": {
+"generate/physics": true
+},
+"PATH:storae/group2/table_shelf3": {
+"generate/physics": true
+},
+"PATH:storae/group3/table_shelf12": {
+"generate/physics": true
+},
+"PATH:storae/group3/table_shelf22": {
+"generate/physics": true
+},
+"PATH:storae/group3/table_shelf32": {
+"generate/physics": true
+},
+"PATH:storae/group3/table_shelf4": {
+"generate/physics": true
+},
+"PATH:storae/group4/table_shelf13": {
+"generate/physics": true
+},
+"PATH:storae/group4/table_shelf23": {
+"generate/physics": true
+},
+"PATH:storae/group4/table_shelf33": {
+"generate/physics": true
+},
+"PATH:storae/group4/table_shelf6": {
+"generate/physics": true
+},
+"PATH:wall": {
+"generate/physics": true
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2
