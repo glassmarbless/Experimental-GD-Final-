@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://bjfncwl0r4ry7"]
+
+[ext_resource type="Script" uid="uid://d2bdsnwsrtuun" path="res://Scripts/light_source.gd" id="1_47aeq"]
+[ext_resource type="Script" uid="uid://ca1y6in7k7nc3" path="res://Scripts/LightPuzzle.gd" id="1_xsqeo"]
+[ext_resource type="Texture2D" uid="uid://bfexviq8mmkwh" path="res://Assets/Art/images (1).png" id="2_47aeq"]
+[ext_resource type="Script" uid="uid://dsf3tdc7ibfq6" path="res://Scripts/EndTarget.gd" id="3_m02al"]
+[ext_resource type="PackedScene" uid="uid://bfxish7y4a1gn" path="res://Scenes/Puzzles/Mirror.tscn" id="5_o1atd"]
+[ext_resource type="PackedScene" uid="uid://b4hjfhwox5dfj" path="res://Scenes/Puzzles/BendMirror.tscn" id="6_1yf2p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o1atd"]
+
+[sub_resource type="FontFile" id="FontFile_xsqeo"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/29/0/ascent = 0.0
+cache/0/29/0/descent = 0.0
+cache/0/29/0/underline_position = 0.0
+cache/0/29/0/underline_thickness = 0.0
+cache/0/29/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/33/0/ascent = 0.0
+cache/0/33/0/descent = 0.0
+cache/0/33/0/underline_position = 0.0
+cache/0/33/0/underline_thickness = 0.0
+cache/0/33/0/scale = 1.0
+cache/0/34/0/ascent = 0.0
+cache/0/34/0/descent = 0.0
+cache/0/34/0/underline_position = 0.0
+cache/0/34/0/underline_thickness = 0.0
+cache/0/34/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/37/0/ascent = 0.0
+cache/0/37/0/descent = 0.0
+cache/0/37/0/underline_position = 0.0
+cache/0/37/0/underline_thickness = 0.0
+cache/0/37/0/scale = 1.0
+cache/0/38/0/ascent = 0.0
+cache/0/38/0/descent = 0.0
+cache/0/38/0/underline_position = 0.0
+cache/0/38/0/underline_thickness = 0.0
+cache/0/38/0/scale = 1.0
+cache/0/39/0/ascent = 0.0
+cache/0/39/0/descent = 0.0
+cache/0/39/0/underline_position = 0.0
+cache/0/39/0/underline_thickness = 0.0
+cache/0/39/0/scale = 1.0
+
+[node name="LightPuzzle" type="Node2D" unique_id=1272324047]
+script = ExtResource("1_xsqeo")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1115969135]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 9.87
+offset_bottom = 10.725
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(195.43524, 101.54855)
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+
+[node name="BeamLine" type="Line2D" parent="." unique_id=1908017405]
+
+[node name="LightSource" type="Node2D" parent="." unique_id=877569938]
+position = Vector2(87, 568.00006)
+scale = Vector2(0.39658403, 0.382351)
+script = ExtResource("1_47aeq")
+
+[node name="Sprite2D" type="Sprite2D" parent="LightSource" unique_id=1471859383]
+texture = ExtResource("2_47aeq")
+
+[node name="BendMirror" parent="." unique_id=1009653989 instance=ExtResource("6_1yf2p")]
+position = Vector2(845, 652)
+rotation = -3.1415925
+scale = Vector2(0.65322816, 0.50121045)
+
+[node name="Mirror" parent="." unique_id=1263438174 instance=ExtResource("5_o1atd")]
+position = Vector2(1298, 903)
+rotation = 2.1642082
+
+[node name="EndTarget" type="StaticBody2D" parent="." unique_id=1140898229]
+position = Vector2(1579, 628)
+script = ExtResource("3_m02al")
+
+[node name="Sprite2D" type="Sprite2D" parent="EndTarget" unique_id=343431476]
+position = Vector2(195, -51)
+scale = Vector2(0.65486443, 0.58751476)
+texture = ExtResource("2_47aeq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndTarget" unique_id=1633056826]
+position = Vector2(191, -54)
+scale = Vector2(10.642858, 9.6249695)
+shape = SubResource("CircleShape2D_o1atd")
+
+[node name="Button" type="Button" parent="." unique_id=2044874430]
+custom_minimum_size = Vector2(9.455, 6.4)
+offset_left = 853.0
+offset_top = 991.0
+offset_right = 954.0
+offset_bottom = 1052.0
+scale = Vector2(1.6736107, 1.5311345)
+theme_override_fonts/font = SubResource("FontFile_xsqeo")
+theme_override_font_sizes/font_size = 39
+text = "Close"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
