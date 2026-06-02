@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c72xqbvemsgfx"]
 
-[ext_resource type="Shader" uid="uid://4bx5ijvpoyff" path="res://Scripts/Test.gdshader" id="1_wn3eo"]
+[ext_resource type="Shader" uid="uid://cdljenyytbtrt" path="res://Scripts/VHS.gdshader" id="1_m1xr4"]
 [ext_resource type="PackedScene" uid="uid://b6kn0rk0qv5k7" path="res://Scenes/Player.tscn" id="2_gl6un"]
 [ext_resource type="Script" uid="uid://dy0nbp4qyb1vs" path="res://Scripts/Door.gd" id="3_j5yw3"]
 [ext_resource type="Texture2D" uid="uid://docn5x8ort4i2" path="res://Assets/Art/in game/alien/frames/alien (1).PNG" id="4_87gmd"]
@@ -11,21 +11,14 @@
 [ext_resource type="Script" uid="uid://c2fpwwcgnmxkv" path="res://Scripts/Alien.gd" id="9_knj11"]
 [ext_resource type="PackedScene" uid="uid://kxu02pg2bblt" path="res://Assets/Art/Map/added doorways test.fbx" id="11_dahhg"]
 [ext_resource type="Script" uid="uid://c4anlfm50wtlb" path="res://Scripts/PuzzlePanel.gd" id="11_igmvf"]
-[ext_resource type="PackedScene" uid="uid://bjfncwl0r4ry7" path="res://Scenes/LightPuzzle.tscn" id="12_m1xr4"]
+[ext_resource type="PackedScene" uid="uid://bjfncwl0r4ry7" path="res://Scenes/Puzzles/LightPuzzle.tscn" id="12_m1xr4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igmvf"]
-shader = ExtResource("1_wn3eo")
-shader_parameter/shake = 0.4350000206625
-shader_parameter/noiseQuality = 250.0
-shader_parameter/noiseIntensity = 0.001
-shader_parameter/offsetIntensity = 0.0045
-shader_parameter/colorOffsetIntensity = 1.03500004590262
-shader_parameter/pixelSize = 1024.0
-shader_parameter/grainIntensity = 0.210000009975
-shader_parameter/use_overlay = true
-shader_parameter/use_lens_distortion = true
-shader_parameter/overlay_color = Color(1, 1, 1, 10)
-shader_parameter/lens_distortion_strength = 0.05
+shader = ExtResource("1_m1xr4")
+shader_parameter/wiggle = 0.05
+shader_parameter/wiggle_speed = 0.5
+shader_parameter/smear = 1.0
+shader_parameter/blur_samples = 15
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gl6un"]
 
@@ -61,6 +54,7 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1xr4"]
 
 [node name="Game" type="Node2D" unique_id=615139604]
+visible = false
 
 [node name="ShaderTest" type="CanvasLayer" parent="." unique_id=286054974]
 visible = false
@@ -76,7 +70,7 @@ offset_bottom = 1110.0
 transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 15.181721, 4.034731, 0.053027153)
 
 [node name="added doorways test" parent="." unique_id=465934426 instance=ExtResource("11_dahhg")]
-transform = Transform3D(227.1994, 0, 0, 0, 209.58757, 0, 0, 0, 215.4524, 0, 0.592, 0)
+transform = Transform3D(227.1994, 0, 0, 0, 209.58757, 0, 0, 0, 215.4524, 0.017437935, 0.61099243, 0.010290146)
 
 [node name="Door" type="StaticBody3D" parent="." unique_id=664750321 groups=["spell_door"]]
 transform = Transform3D(1, 0, 0, 0, -5.7199664, 0, 0, 0, 10.59586, 10.813436, 3.76958, 0.9461789)

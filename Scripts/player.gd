@@ -76,8 +76,8 @@ func _process(delta: float) -> void:
 				obj.interact()
 		else:
 			print("Hit object is NOT in puzzle_panel group")
-	else:
-		print("Ray is not hitting anything")
+	#else:
+		 #print("Ray is not hitting anything")
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if not spell_book_open:

@@ -7,6 +7,7 @@ extends Node2D
 @onready var beam_line = $BeamLine
 
 func _ready():
+	add_to_group("light_puzzle")
 	update_beam()
 
 func update_beam():
@@ -35,7 +36,15 @@ func update_beam():
 
 		var hit = result.collider
 
-		if hit.is_in_group("mirror"):
+		if hit.is_in_group("bend_mirror"):
+			reflections += 1
+	
+			# Turn the light 90 degrees
+			dir = Vector2(-dir.y, dir.x)
+	
+			start_pos = result.position + dir * 2
+
+		elif hit.is_in_group("mirror"):
 			reflections += 1
 			dir = dir.bounce(result.normal)
 			start_pos = result.position + dir * 2

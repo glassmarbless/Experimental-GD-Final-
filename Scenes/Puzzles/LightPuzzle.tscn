@@ -4,11 +4,15 @@
 [ext_resource type="Script" uid="uid://ca1y6in7k7nc3" path="res://Scripts/LightPuzzle.gd" id="1_xsqeo"]
 [ext_resource type="Texture2D" uid="uid://bfexviq8mmkwh" path="res://Assets/Art/images (1).png" id="2_47aeq"]
 [ext_resource type="Script" uid="uid://dsf3tdc7ibfq6" path="res://Scripts/EndTarget.gd" id="3_m02al"]
-[ext_resource type="PackedScene" uid="uid://bfxish7y4a1gn" path="res://Scenes/Mirror.tscn" id="5_o1atd"]
+[ext_resource type="PackedScene" uid="uid://bfxish7y4a1gn" path="res://Scenes/Puzzles/Mirror.tscn" id="5_o1atd"]
+[ext_resource type="PackedScene" uid="uid://b4hjfhwox5dfj" path="res://Scenes/Puzzles/BendMirror.tscn" id="6_1yf2p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o1atd"]
 
 [sub_resource type="FontFile" id="FontFile_xsqeo"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -163,8 +167,13 @@ script = ExtResource("1_47aeq")
 [node name="Sprite2D" type="Sprite2D" parent="LightSource" unique_id=1471859383]
 texture = ExtResource("2_47aeq")
 
-[node name="Mirror" parent="." unique_id=215639553 instance=ExtResource("5_o1atd")]
-position = Vector2(810.00006, 561)
+[node name="BendMirror" parent="." unique_id=1009653989 instance=ExtResource("6_1yf2p")]
+position = Vector2(845, 652)
+rotation = -3.1415925
+scale = Vector2(0.65322816, 0.50121045)
+
+[node name="Mirror" parent="." unique_id=1263438174 instance=ExtResource("5_o1atd")]
+position = Vector2(1218, 906.99994)
 rotation = 2.1642082
 
 [node name="EndTarget" type="StaticBody2D" parent="." unique_id=1140898229]
