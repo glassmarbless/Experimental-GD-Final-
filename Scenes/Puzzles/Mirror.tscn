@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bfxish7y4a1gn"]
+
+[ext_resource type="Script" uid="uid://caeim5fcrm140" path="res://Scripts/Mirror.gd" id="1_4gbad"]
+[ext_resource type="Texture2D" uid="uid://5pfxntkgrx1" path="res://Assets/Art/pngtree-realistic-rectangle-mirror-with-metal-frame-png-image_10008597.png" id="2_1x7ex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox6id"]
+size = Vector2(30.10205, 77.52525)
+
+[node name="Mirror" type="Node2D" unique_id=215639553]
+
+[node name="Mirror1" type="StaticBody2D" parent="." unique_id=801394012]
+position = Vector2(84, 21)
+scale = Vector2(0.96969706, 0.12818915)
+input_pickable = true
+script = ExtResource("1_4gbad")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mirror1" unique_id=447956827]
+texture = ExtResource("2_1x7ex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror1" unique_id=134857298]
+position = Vector2(0.49987793, 0.5)
+scale = Vector2(5.880001, 3.96)
+shape = SubResource("RectangleShape2D_ox6id")

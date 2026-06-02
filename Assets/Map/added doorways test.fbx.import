@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cqt30pc2arknm"
-path="res://.godot/imported/added doorways test.fbx-12cc28ecc7e904b3486e903b4c0eb718.scn"
+path="res://.godot/imported/added doorways test.fbx-e0a0d4192ea1f773cf0633c4a1658036.scn"
 
 [deps]
 
-source_file="res://Scenes/added doorways test.fbx"
-dest_files=["res://.godot/imported/added doorways test.fbx-12cc28ecc7e904b3486e903b4c0eb718.scn"]
+source_file="res://Assets/Map/added doorways test.fbx"
+dest_files=["res://.godot/imported/added doorways test.fbx-e0a0d4192ea1f773cf0633c4a1658036.scn"]
 
 [params]
 

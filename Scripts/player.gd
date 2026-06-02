@@ -1,4 +1,6 @@
 extends CharacterBody3D
+
+@onready var interact_ray = $Camera3D/InteractRay
  
 @onready var alien: AnimatedSprite3D = get_tree().get_first_node_in_group("alien")
 @export var move_speed: float = 6.0
@@ -54,13 +56,28 @@ func _ready() -> void:
 
 	spell_display.text = ""
 
-
 func _process(delta: float) -> void:
 	if get_tree().paused:
 		return
 		
 	var viewport_size := get_viewport().get_visible_rect().size
 	var mouse_pos := get_viewport().get_mouse_position()
+
+
+	if Input.is_action_just_pressed("interact"):
+		print("Pressed E")
+
+		if interact_ray.is_colliding():
+			var obj = interact_ray.get_collider()
+			print("Ray hit: ", obj.name)
+
+			if obj.is_in_group("puzzle_panel"):
+				print("This is a puzzle panel")
+				obj.interact()
+		else:
+			print("Hit object is NOT in puzzle_panel group")
+	#else:
+		 #print("Ray is not hitting anything")
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if not spell_book_open:

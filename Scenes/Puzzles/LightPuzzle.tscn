@@ -173,7 +173,7 @@ rotation = -3.1415925
 scale = Vector2(0.65322816, 0.50121045)
 
 [node name="Mirror" parent="." unique_id=1263438174 instance=ExtResource("5_o1atd")]
-position = Vector2(1298, 903)
+position = Vector2(1218, 906.99994)
 rotation = 2.1642082
 
 [node name="EndTarget" type="StaticBody2D" parent="." unique_id=1140898229]

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://b6kn0rk0qv5k7"]
 
 [ext_resource type="Script" uid="uid://cp3jt27rch6pv" path="res://Scripts/player.gd" id="1_rpqav"]
-[ext_resource type="PackedScene" uid="uid://cwgg6mhvnwoj" path="res://assets/TEMP ART (NOTE REMOVE THIS ONECE MERGED)/instrument.fbx" id="2_kyqiw"]
-[ext_resource type="AudioStream" uid="uid://xb1el86ahdb3" path="res://assets/Audio/Notes/freesound_community-gockenspiel_a-102771.mp3" id="3_megsn"]
+[ext_resource type="PackedScene" uid="uid://cwgg6mhvnwoj" path="res://Assets/Art/TEMP ART (NOTE REMOVE THIS ONECE MERGED)/instrument.fbx" id="2_kyqiw"]
+[ext_resource type="AudioStream" uid="uid://xb1el86ahdb3" path="res://Assets/Art/Audio/Notes/freesound_community-gockenspiel_a-102771.mp3" id="3_megsn"]
 [ext_resource type="Script" uid="uid://cvfuius4jvsf5" path="res://Scripts/Music.gd" id="3_yoq75"]
-[ext_resource type="AudioStream" uid="uid://khevrodvqemb" path="res://assets/Audio/Notes/Firefly_audio_B_note_from_woodwind_instrument_variation4.wav" id="4_yoq75"]
-[ext_resource type="AudioStream" uid="uid://dnxij1nb1pg4i" path="res://assets/Audio/Notes/Piano Note C Sound Effect.mp3" id="5_ksbbd"]
-[ext_resource type="AudioStream" uid="uid://dxq1r6e63ya08" path="res://assets/Audio/Notes/Firefly_audio_D_note_from_instrument_variation2.wav" id="6_glx4g"]
-[ext_resource type="AudioStream" uid="uid://bxsqutscku1se" path="res://assets/Audio/Notes/Firefly_audio_E_note_from_instrument_variation2.wav" id="7_miouo"]
-[ext_resource type="AudioStream" uid="uid://di6rcdve2o710" path="res://assets/Audio/Notes/Firefly_audio_F_note_from_synth_instrument_variation4.wav" id="8_o3h8g"]
-[ext_resource type="AudioStream" uid="uid://b6w71x7if35xd" path="res://assets/Audio/Notes/Firefly_audio_G_note_from_synth_instrument_variation4.wav" id="9_1e7my"]
+[ext_resource type="AudioStream" uid="uid://khevrodvqemb" path="res://Assets/Art/Audio/Notes/Firefly_audio_B_note_from_woodwind_instrument_variation4.wav" id="4_yoq75"]
+[ext_resource type="AudioStream" uid="uid://dnxij1nb1pg4i" path="res://Assets/Art/Audio/Notes/Piano Note C Sound Effect.mp3" id="5_ksbbd"]
+[ext_resource type="AudioStream" uid="uid://dxq1r6e63ya08" path="res://Assets/Art/Audio/Notes/Firefly_audio_D_note_from_instrument_variation2.wav" id="6_glx4g"]
+[ext_resource type="AudioStream" uid="uid://bxsqutscku1se" path="res://Assets/Art/Audio/Notes/Firefly_audio_E_note_from_instrument_variation2.wav" id="7_miouo"]
+[ext_resource type="AudioStream" uid="uid://di6rcdve2o710" path="res://Assets/Art/Audio/Notes/Firefly_audio_F_note_from_synth_instrument_variation4.wav" id="8_o3h8g"]
+[ext_resource type="AudioStream" uid="uid://b6w71x7if35xd" path="res://Assets/Art/Audio/Notes/Firefly_audio_G_note_from_synth_instrument_variation4.wav" id="9_1e7my"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qbkls"]
 
@@ -147,3 +147,8 @@ stream = ExtResource("8_o3h8g")
 
 [node name="Audio7" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1530064373]
 stream = ExtResource("9_1e7my")
+
+[node name="InteractRay" type="RayCast3D" parent="Player/Camera3D" unique_id=2052395022]
+target_position = Vector3(0, 0, -5)
+collide_with_areas = true
+debug_shape_thickness = 1
