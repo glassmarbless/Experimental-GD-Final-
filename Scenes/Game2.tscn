@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c72xqbvemsgfx"]
 
+[ext_resource type="Shader" uid="uid://4bx5ijvpoyff" path="res://Scripts/Test.gdshader" id="1_wn3eo"]
 [ext_resource type="PackedScene" uid="uid://b6kn0rk0qv5k7" path="res://Scenes/Player.tscn" id="2_gl6un"]
 [ext_resource type="Script" uid="uid://dy0nbp4qyb1vs" path="res://Scripts/Door.gd" id="3_j5yw3"]
 [ext_resource type="Texture2D" uid="uid://docn5x8ort4i2" path="res://Assets/Art/in game/alien/frames/alien (1).PNG" id="4_87gmd"]
@@ -9,6 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://2hyyc6wqpqlo" path="res://Assets/Art/in game/alien/frames/alien (5).PNG" id="8_wk4wq"]
 [ext_resource type="Script" uid="uid://c2fpwwcgnmxkv" path="res://Scripts/Alien.gd" id="9_knj11"]
 [ext_resource type="PackedScene" uid="uid://kxu02pg2bblt" path="res://Assets/Art/Map/added doorways test.fbx" id="11_dahhg"]
+[ext_resource type="Script" uid="uid://c4anlfm50wtlb" path="res://Scripts/PuzzlePanel.gd" id="11_igmvf"]
+[ext_resource type="PackedScene" uid="uid://bjfncwl0r4ry7" path="res://Scenes/LightPuzzle.tscn" id="12_m1xr4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_igmvf"]
+shader = ExtResource("1_wn3eo")
+shader_parameter/shake = 0.4350000206625
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.0045
+shader_parameter/colorOffsetIntensity = 1.03500004590262
+shader_parameter/pixelSize = 1024.0
+shader_parameter/grainIntensity = 0.210000009975
+shader_parameter/use_overlay = true
+shader_parameter/use_lens_distortion = true
+shader_parameter/overlay_color = Color(1, 1, 1, 10)
+shader_parameter/lens_distortion_strength = 0.05
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gl6un"]
 
@@ -39,7 +56,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="BoxMesh" id="BoxMesh_igmvf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1xr4"]
+
 [node name="Game" type="Node2D" unique_id=615139604]
+
+[node name="ShaderTest" type="CanvasLayer" parent="." unique_id=286054974]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ShaderTest" unique_id=1229543562]
+material = SubResource("ShaderMaterial_igmvf")
+offset_right = 1935.0
+offset_bottom = 1110.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=67659190]
 
 [node name="Player" parent="." unique_id=954489223 instance=ExtResource("2_gl6un")]
 transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 15.181721, 4.034731, 0.053027153)
@@ -66,3 +97,15 @@ frame = 4
 frame_progress = 1.0
 script = ExtResource("9_knj11")
 player_path = NodePath("../Player")
+
+[node name="PuzzlePanel" type="Area3D" parent="." unique_id=1264168522 node_paths=PackedStringArray("canvas_layer") groups=["puzzle_panel"]]
+transform = Transform3D(-5.2466508e-08, 0, 0.29118088, 0, 0.9809854, 0, -1.2002938, 0, -1.2727921e-08, 11.6780615, 3.3282955, -3.6281557)
+script = ExtResource("11_igmvf")
+puzzle_scene = ExtResource("12_m1xr4")
+canvas_layer = NodePath("../CanvasLayer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzlePanel" unique_id=2058848580]
+mesh = SubResource("BoxMesh_igmvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzlePanel" unique_id=1582178353]
+shape = SubResource("BoxShape3D_m1xr4")
