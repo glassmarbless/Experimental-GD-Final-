@@ -164,8 +164,8 @@ script = ExtResource("1_47aeq")
 texture = ExtResource("2_47aeq")
 
 [node name="Mirror" parent="." unique_id=215639553 instance=ExtResource("5_o1atd")]
-position = Vector2(719, 475)
-rotation = 1.5707964
+position = Vector2(810.00006, 561)
+rotation = 2.1642082
 
 [node name="EndTarget" type="StaticBody2D" parent="." unique_id=1140898229]
 position = Vector2(1579, 628)

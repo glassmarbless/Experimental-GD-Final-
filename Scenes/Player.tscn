@@ -151,3 +151,4 @@ stream = ExtResource("9_1e7my")
 [node name="InteractRay" type="RayCast3D" parent="Player/Camera3D" unique_id=2052395022]
 target_position = Vector3(0, 0, -5)
 collide_with_areas = true
+debug_shape_thickness = 1
