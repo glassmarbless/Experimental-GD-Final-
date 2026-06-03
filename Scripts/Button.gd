@@ -1,6 +1,9 @@
 extends Area3D
 
-@export var door_group_name: String = "button_door"
+@export var target_door: Node
 
 func interact() -> void:
-	get_tree().call_group(door_group_name, "toggle_door")
+	if target_door:
+		target_door.toggle_door()
+	else:
+		print("No target door linked")

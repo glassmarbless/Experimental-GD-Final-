@@ -1,19 +1,19 @@
 extends Node3D
 
-@export var rise_height: float = 4.0
-@export var rise_speed: float = 2.0
+@export var rise_height := 4.0
+@export var rise_speed := 2.0
 
 var is_open := false
-var closed_position: Vector3
-var open_position: Vector3
+var closed_pos: Vector3
+var open_pos: Vector3
 
 func _ready() -> void:
-	closed_position = position
-	open_position = closed_position + Vector3(0, rise_height, 0)
+	closed_pos = global_position
+	open_pos = closed_pos + Vector3.UP * rise_height
 
 func toggle_door() -> void:
 	is_open = !is_open
 
 func _process(delta: float) -> void:
-	var target_position = open_position if is_open else closed_position
-	position = position.move_toward(target_position, rise_speed * delta)
+	var target := open_pos if is_open else closed_pos
+	global_position = global_position.move_toward(target, rise_speed * delta)

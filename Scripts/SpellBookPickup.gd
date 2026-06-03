@@ -1,52 +1,64 @@
 extends Area3D
 
 @export var prompt_label: Label
+@export var player_path: NodePath
+@export var pickup_distance: float = 3.0
 
-var player_near := false
-var player: Node = null
 var picked_up := false
+var player
 
-func _ready() -> void:
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
+func _ready():
+
+	player = get_node(player_path)
 
 	if prompt_label:
 		prompt_label.visible = false
-	else:
-		print("PROMPT LABEL NOT SET")
-func _process(_delta: float) -> void:
-	if player_near and not picked_up:
+
+
+func _process(_delta):
+
+	if picked_up:
+		return
+
+	if player == null:
+		return
+
+	var distance = global_position.distance_to(player.global_position)
+
+	if distance <= pickup_distance:
+
 		if prompt_label:
+
 			prompt_label.visible = true
 			prompt_label.text = "Press E to pick up spell book"
 
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_key_pressed(KEY_E):
+
 			pick_up_book()
 
-func _on_body_entered(body: Node) -> void:
-	print("Entered: ", body.name, " group player? ", body.is_in_group("player"))
-
-	if body.is_in_group("player"):
-		player = body
-		player_near = true
-
-
-func _on_body_exited(body: Node) -> void:
-	if body == player:
-		player_near = false
-		player = null
+	else:
 
 		if prompt_label:
+
 			prompt_label.visible = false
 
-func pick_up_book() -> void:
+
+func pick_up_book():
+
 	picked_up = true
 
 	if prompt_label:
+
 		prompt_label.visible = false
 
-	if player:
-		player.has_spell_book = true
+	var real_player = get_tree().get_first_node_in_group("player")
 
+	if real_player:
+		real_player.set("has_spell_book", true)
+		print("Spell book unlocked")
+	else:
+		print("Could not find player group")
+
+	# Hide the whole spellbook object
 	get_parent().visible = false
 	get_parent().process_mode = Node.PROCESS_MODE_DISABLED

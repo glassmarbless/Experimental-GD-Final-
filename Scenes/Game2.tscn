@@ -18,7 +18,6 @@
 [ext_resource type="Script" uid="uid://pg6ovomx8jeu" path="res://Scripts/Button.gd" id="15_wj3oi"]
 [ext_resource type="PackedScene" uid="uid://dco5tl280hlbk" path="res://Assets/Art/in game/Body/TornCorpse.fbx" id="17_wncpl"]
 [ext_resource type="PackedScene" uid="uid://by01tu2bb72iy" path="res://Assets/Art/instrument/Untitled.glb" id="18_idgkg"]
-[ext_resource type="Script" uid="uid://bnsy8evbo3tab" path="res://Scripts/SpellBookPickup.gd" id="19_lglut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igmvf"]
 shader = ExtResource("1_m1xr4")
@@ -73,8 +72,6 @@ sky = SubResource("Sky_n7dph")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_knj11"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lglut"]
-
 [node name="Game" type="Node2D" unique_id=615139604]
 visible = false
 
@@ -88,23 +85,14 @@ offset_bottom = 1110.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=67659190]
 layer = 11
 
-[node name="PickupPrompt" type="Label" parent="CanvasLayer" unique_id=1484113890 groups=["pickup_prompt"]]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(2.009985, 4.5368648)
-theme_override_font_sizes/font_size = 113
-text = "Press E to pick up"
-
 [node name="Player" parent="." unique_id=954489223 groups=["player"] instance=ExtResource("2_gl6un")]
 transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 0.3791263, 3.091133, 35.473232)
 
 [node name="Alien" type="AnimatedSprite3D" parent="." unique_id=1164624801 groups=["alien"]]
-transform = Transform3D(0.8580581, 0, 0, 0, 0.71655476, 0, 0, 0, 1, 16.734825, 3.221173, 9.258552)
+transform = Transform3D(0.8580581, 0, 0, 0, 0.71655476, 0, 0, 0, 1, 25.314623, 3.221173, -0.027822495)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_wj3oi")
-frame = 4
-frame_progress = 1.0
+frame_progress = 0.8150153
 script = ExtResource("9_knj11")
 player_path = NodePath("../Player")
 
@@ -129,6 +117,15 @@ environment = SubResource("Environment_wncpl")
 
 [node name="SHIP 23" parent="." unique_id=647020656 instance=ExtResource("14_knj11")]
 transform = Transform3D(256.215, 0, 0, 0, 256.215, 0, 0, 0, 256.215, 0, 0, 0)
+
+[node name="TornCorpse2" parent="." unique_id=1708092207 instance=ExtResource("17_wncpl")]
+transform = Transform3D(1.9647408, -1.5681583e-07, 1.5836332e-07, 1.7176309e-07, 1.7937639, 1.5836332e-07, -1.717631e-07, -1.568158e-07, 1.8114653, 1.9009066, -1.4545677, 17.40895)
+
+[node name="TornCorpse" parent="." unique_id=258623520 instance=ExtResource("17_wncpl")]
+transform = Transform3D(1.3927662, -0.10730913, 0.015018921, 1.4269862e-09, 0.0924731, 1.6908776, -0.14213511, -1.0515103, 0.14716837, 3.0474763, 0.49613976, 18.675074)
+
+[node name="Music player" parent="." unique_id=407358949 instance=ExtResource("18_idgkg")]
+transform = Transform3D(1.443926, 0, 0, 0, 1, 0, 0, 0, 1.4771309, -0.2557084, 0.36191404, 18.224771)
 
 [node name="Lab door" parent="." unique_id=1612493728 groups=["spell_door"] instance=ExtResource("14_wj3oi")]
 transform = Transform3D(0.352, 0, 0, 0, 250, 0, 0, 0, 432.094, 13.08, -29.162, 1.741)
@@ -181,9 +178,10 @@ mesh = SubResource("BoxMesh_knj11")
 transform = Transform3D(0.006, 0, 0, 0, 0.01, 0, 0, 0, 0.015, 0.66773224, 0.00066792825, 0)
 shape = SubResource("BoxShape3D_knj11")
 
-[node name="Door Open2" type="Area3D" parent="." unique_id=1810697295 groups=["puzzle_panel"]]
+[node name="Door Open2" type="Area3D" parent="." unique_id=1810697295 node_paths=PackedStringArray("target_door") groups=["puzzle_panel"]]
 transform = Transform3D(0.711164, 0, 0.0020402835, 0, 0.6743892, 0, 0.5894395, 0, 0.0048852703, 3.3199298, 3.2192905, 28.14933)
 script = ExtResource("15_wj3oi")
+target_door = NodePath("../Start Game door")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Door Open2" unique_id=1852635135]
 mesh = SubResource("BoxMesh_igmvf")
@@ -191,9 +189,10 @@ mesh = SubResource("BoxMesh_igmvf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door Open2" unique_id=446426933]
 shape = SubResource("BoxShape3D_m1xr4")
 
-[node name="Door Open" type="Area3D" parent="." unique_id=1167232392 groups=["puzzle_panel"]]
+[node name="Door Open" type="Area3D" parent="." unique_id=1167232392 node_paths=PackedStringArray("target_door") groups=["puzzle_panel"]]
 transform = Transform3D(-0.9238265, 0, -0.18590315, 0, 0.9809854, 0, 0.7663223, 0, -0.2241123, 3.4807036, 3.2808933, 25.068066)
 script = ExtResource("15_wj3oi")
+target_door = NodePath("../Start Game door")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Door Open" unique_id=1354506549]
 mesh = SubResource("BoxMesh_igmvf")
@@ -201,38 +200,114 @@ mesh = SubResource("BoxMesh_igmvf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door Open" unique_id=850077692]
 shape = SubResource("BoxShape3D_m1xr4")
 
-[node name="TornCorpse2" parent="." unique_id=1708092207 instance=ExtResource("17_wncpl")]
-transform = Transform3D(1.9647408, -1.5681583e-07, 1.5836332e-07, 1.7176309e-07, 1.7937639, 1.5836332e-07, -1.717631e-07, -1.568158e-07, 1.8114653, 1.9009066, -1.4545677, 17.40895)
+[node name="Door" parent="." unique_id=1503231618 groups=["button_door"] instance=ExtResource("14_wj3oi")]
+transform = Transform3D(0.33, 0, 0, 0, 243.436, 0, 0, 0, 349.402, 12.932, -28.682, 12.316)
+script = ExtResource("15_n7dph")
 
-[node name="TornCorpse" parent="." unique_id=258623520 instance=ExtResource("17_wncpl")]
-transform = Transform3D(1.3927662, -0.10730913, 0.015018921, 1.4269862e-09, 0.0924731, 1.6908776, -0.14213511, -1.0515103, 0.14716837, 3.0474763, 0.49613976, 18.675074)
+[node name="StaticBody3D" type="StaticBody3D" parent="Door" unique_id=1422414476 groups=["spell_door"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
+physics_material_override = SubResource("PhysicsMaterial_knj11")
 
-[node name="Music player" parent="." unique_id=407358949 instance=ExtResource("18_idgkg")]
-transform = Transform3D(1.443926, 0, 0, 0, 1, 0, 0, 0, 1.4771309, -0.2557084, 0.36191404, 18.224771)
-
-[node name="Area3D" type="Area3D" parent="Music player" unique_id=407373884 node_paths=PackedStringArray("prompt_label")]
-transform = Transform3D(752.072, 0, 0, 0, -1672.9232, 0, 0, 0, 656.9861, 0, 3.5604954, 0.5922756)
-script = ExtResource("19_lglut")
-prompt_label = NodePath("../../PickupCanvas/PickupPrompt")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Music player/Area3D" unique_id=930813531]
-shape = SubResource("BoxShape3D_lglut")
-
-[node name="PickupCanvas" type="CanvasLayer" parent="." unique_id=1454556693]
-layer = 50
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door/StaticBody3D" unique_id=2105330199]
+transform = Transform3D(0.38341954, 0, 0, 0, 0.008753682, 0, 0, 0, 0.012470264, 0.62781906, 0.00053135725, 0)
 visible = false
+mesh = SubResource("BoxMesh_knj11")
 
-[node name="PickupPrompt" type="Label" parent="PickupCanvas" unique_id=1612304104]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -109.0
-offset_top = -1180.0
-offset_right = 109.0
-offset_bottom = -1157.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(46.615437, 31.712898)
-text = "Press E to pick up spell book"
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D" unique_id=1227801890]
+transform = Transform3D(0.006, 0, 0, 0, 0.01, 0, 0, 0, 0.015, 0.66773224, 0.00066792825, 0)
+shape = SubResource("BoxShape3D_knj11")
+
+[node name="Button" type="Area3D" parent="." unique_id=1362944485 node_paths=PackedStringArray("target_door") groups=["puzzle_panel"]]
+transform = Transform3D(-5.2466508e-08, 0, 0.29118088, 0, 0.9809854, 0, -1.2002938, 0, -1.2727921e-08, 13.142629, 3.3282955, 7.6826878)
+script = ExtResource("15_wj3oi")
+target_door = NodePath("../Door")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button" unique_id=1597229859]
+mesh = SubResource("BoxMesh_igmvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button" unique_id=1064995239]
+shape = SubResource("BoxShape3D_m1xr4")
+
+[node name="Door2" parent="." unique_id=337304827 groups=["button_door"] instance=ExtResource("14_wj3oi")]
+transform = Transform3D(0.33, 0, 0, 0, 243.436, 0, 0, 0, 349.402, -13.014041, -28.682, 12.316)
+script = ExtResource("15_n7dph")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door2" unique_id=1992842226 groups=["spell_door"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
+physics_material_override = SubResource("PhysicsMaterial_knj11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door2/StaticBody3D" unique_id=1401396206]
+transform = Transform3D(0.38341954, 0, 0, 0, 0.008753682, 0, 0, 0, 0.012470264, 0.62781906, 0.00053135725, 0)
+visible = false
+mesh = SubResource("BoxMesh_knj11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door2/StaticBody3D" unique_id=447114506]
+transform = Transform3D(0.006, 0, 0, 0, 0.01, 0, 0, 0, 0.015, 0.66773224, 0.00066792825, 0)
+shape = SubResource("BoxShape3D_knj11")
+
+[node name="Button2" type="Area3D" parent="." unique_id=1465010517 node_paths=PackedStringArray("target_door") groups=["puzzle_panel"]]
+transform = Transform3D(-5.2466508e-08, 0, 0.29118088, 0, 0.9809854, 0, -1.2002938, 0, -1.2727921e-08, -13.06704, 3.3282955, 7.6826878)
+script = ExtResource("15_wj3oi")
+target_door = NodePath("../Door2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button2" unique_id=703514762]
+mesh = SubResource("BoxMesh_igmvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button2" unique_id=1134321573]
+shape = SubResource("BoxShape3D_m1xr4")
+
+[node name="Door3" parent="." unique_id=1892297592 groups=["button_door"] instance=ExtResource("14_wj3oi")]
+transform = Transform3D(0.33, 0, 0, 0, 243.436, 0, 0, 0, 349.402, -13.014041, -28.682, -9.679748)
+script = ExtResource("15_n7dph")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door3" unique_id=189892266 groups=["spell_door"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
+physics_material_override = SubResource("PhysicsMaterial_knj11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door3/StaticBody3D" unique_id=830325300]
+transform = Transform3D(0.38341954, 0, 0, 0, 0.008753682, 0, 0, 0, 0.012470264, 0.62781906, 0.00053135725, 0)
+visible = false
+mesh = SubResource("BoxMesh_knj11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door3/StaticBody3D" unique_id=915807001]
+transform = Transform3D(0.006, 0, 0, 0, 0.01, 0, 0, 0, 0.015, 0.66773224, 0.00066792825, 0)
+shape = SubResource("BoxShape3D_knj11")
+
+[node name="Button3" type="Area3D" parent="." unique_id=407905197 node_paths=PackedStringArray("target_door") groups=["puzzle_panel"]]
+transform = Transform3D(-5.2466508e-08, 0, 0.29118088, 0, 0.9809854, 0, -1.2002938, 0, -1.2727921e-08, -13.06704, 3.3282955, -14.31306)
+script = ExtResource("15_wj3oi")
+target_door = NodePath("../Door3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button3" unique_id=1702801307]
+mesh = SubResource("BoxMesh_igmvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button3" unique_id=1922922030]
+shape = SubResource("BoxShape3D_m1xr4")
+
+[node name="Door4" parent="." unique_id=1484849586 groups=["button_door"] instance=ExtResource("14_wj3oi")]
+transform = Transform3D(0.33, 0, 0, 0, 243.436, 0, 0, 0, 349.402, 12.932, -28.682, -9.742133)
+script = ExtResource("15_n7dph")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door4" unique_id=1495285523 groups=["spell_door"]]
+transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
+physics_material_override = SubResource("PhysicsMaterial_knj11")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door4/StaticBody3D" unique_id=42869368]
+transform = Transform3D(0.38341954, 0, 0, 0, 0.008753682, 0, 0, 0, 0.012470264, 0.62781906, 0.00053135725, 0)
+visible = false
+mesh = SubResource("BoxMesh_knj11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door4/StaticBody3D" unique_id=867784346]
+transform = Transform3D(0.006, 0, 0, 0, 0.01, 0, 0, 0, 0.015, 0.66773224, 0.00066792825, 0)
+shape = SubResource("BoxShape3D_knj11")
+
+[node name="Button4" type="Area3D" parent="." unique_id=592660865 node_paths=PackedStringArray("target_door") groups=["puzzle_panel"]]
+transform = Transform3D(-5.2466508e-08, 0, 0.29118088, 0, 0.9809854, 0, -1.2002938, 0, -1.2727921e-08, 13.142629, 3.3282955, -14.375445)
+script = ExtResource("15_wj3oi")
+target_door = NodePath("../Door4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button4" unique_id=836491798]
+mesh = SubResource("BoxMesh_igmvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button4" unique_id=839798252]
+shape = SubResource("BoxShape3D_m1xr4")
