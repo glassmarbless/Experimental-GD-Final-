@@ -7,6 +7,7 @@ extends Node2D
 @onready var HUD = $UI/HUD
 @onready var dialogue_box = $"UI/Dialogue Box"
 @onready var journal = $UI/Journal
+@onready var notification = $"UI/Journal Notification"
 
 var progress = 0
 var tutorial = false
@@ -52,6 +53,7 @@ func _ready() -> void:
 	pause_menu.visible = false
 	dialogue_box.visible = false
 	journal.visible = false
+	notification.visible = false
 	connect_doors()
 	connect_alien()
 	connect_spell()
@@ -73,7 +75,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("open_menu"):
 		journal.visible = false
-
+		
 func toggle_journal():
 	journal.visible = !journal.visible
 	if player.control_enabled:
@@ -292,3 +294,6 @@ func good_end():
 	choices.append("good_end")
 	save_game_progress()
 	get_tree().change_scene_to_file("res://Scenes/good_end.tscn")
+
+func _on_notification_button_pressed() -> void:
+	toggle_journal()
