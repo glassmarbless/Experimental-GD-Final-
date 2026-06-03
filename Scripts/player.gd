@@ -9,6 +9,8 @@ extends CharacterBody3D
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var control_enabled := true
+
 @onready var camera: Camera3D = $Camera3D
 @onready var spell_book_holder: Node3D = $Camera3D/SpellBookHolder
 
@@ -90,6 +92,9 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if not spell_book_open:
+		
+		if not control_enabled:
+			return
 
 		var viewport_size := get_viewport().get_visible_rect().size
 		var mouse_pos := get_viewport().get_mouse_position()
@@ -288,3 +293,7 @@ func check_spell() -> void:
 	else:
 		spell_display.text = ""
 		print("No spell for combo: ", combo)
+
+
+func set_control_enabled(enabled: bool):
+	control_enabled = enabled
