@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://840ypgas4kb8" path="res://Assets/UI/buttons/quit (1).png" id="6_fgofq"]
 [ext_resource type="Texture2D" uid="uid://c3yb06x87mqjt" path="res://Assets/UI/buttons/quit_hover.png" id="7_2irst"]
 [ext_resource type="Texture2D" uid="uid://x2r2slnawhrh" path="res://Assets/Art/in game/HUDtransparent.png" id="8_2irst"]
+[ext_resource type="PackedScene" uid="uid://el8h6ue63o2c" path="res://Scenes/dialogue_box.tscn" id="8_alh3a"]
 [ext_resource type="Texture2D" uid="uid://docn5x8ort4i2" path="res://Assets/Art/in game/alien/frames/alien (1).PNG" id="10_acvyw"]
 [ext_resource type="Script" uid="uid://c2fpwwcgnmxkv" path="res://Scripts/Alien.gd" id="11_3so38"]
 [ext_resource type="Texture2D" uid="uid://1algf1cbqgfl" path="res://Assets/Art/in game/alien/frames/alien (2).PNG" id="11_alh3a"]
@@ -100,6 +101,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("6_fgofq")
 texture_hover = ExtResource("7_2irst")
+
+[node name="Dialogue Box" parent="UI" unique_id=2018870290 instance=ExtResource("8_alh3a")]
 
 [node name="Door" type="StaticBody3D" parent="." unique_id=1939594820 groups=["spell_door"]]
 transform = Transform3D(1, 0, 0, 0, -5.7199664, 0, 0, 0, 10.59586, 10.813436, 3.76958, 0.9461789)

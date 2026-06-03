@@ -1,6 +1,8 @@
 extends Node2D
 
-@onready var slider = $"Control/Settings Holder/Volume Holder/Slider Holder/Volume Adjust"
+@onready var master_slider = $"Control/Settings Holder/Volume Holder/Slider Holder/Volume Adjust"
+@onready var music_slider = $"Control/Settings Holder/Volume Holder2/Slider Holder/Music Adjust"
+@onready var soundfx_slider = $"Control/Settings Holder/Volume Holder3/Slider Holder/Soundfx Adjust"
 @onready var resolution_button = $"Control/Settings Holder/Resolution Holder/Resolution Button"
 @onready var fullscreen_button = $"Control/Settings Holder/Fullscreen Holder/HBoxContainer/Fullscreen Button"
 
@@ -25,41 +27,34 @@ func _ready():
 	for r in resolutions.keys():
 		resolution_button.add_item(r)
 
-	# Set default displayed option to 1920 x 1080
-	var default_index = resolutions.keys().find("1920 x 1080")
-	resolution_button.select(default_index)
+	fullscreen_button.button_pressed = SettingsManager.fullscreen
+	master_slider.value = SettingsManager.master_volume
+	music_slider.value = SettingsManager.music_volume
+	soundfx_slider.value = SettingsManager.soundfx_volume
 
-	resolution_button.item_selected.connect(_on_resolution_selected)
-	fullscreen_button.toggled.connect(_on_fullscreen_toggled)
+	var saved_res_text := "%d x %d" % [
+		SettingsManager.resolution.x,
+		SettingsManager.resolution.y
+	]
 
-	# Apply default resolution when game starts
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	DisplayServer.window_set_size(current_resolution)
-	center_window()
+	var index := resolutions.keys().find(saved_res_text)
+
+	if index != -1:
+		resolution_button.select(index)
 
 
 func _on_resolution_selected(index: int):
-	var selected_text = resolution_button.get_item_text(index)
-	current_resolution = resolutions[selected_text]
+	var text = resolution_button.get_item_text(index)
 
-	if is_fullscreen:
-		# Stay fullscreen
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		# Only resize window in windowed mode
-		DisplayServer.window_set_size(current_resolution)
-		center_window()
+	SettingsManager.resolution = resolutions[text]
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
 
 
 func _on_fullscreen_toggled(button_pressed: bool):
-	is_fullscreen = button_pressed
-
-	if is_fullscreen:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		DisplayServer.window_set_size(current_resolution)
-		center_window()
+	SettingsManager.fullscreen = button_pressed
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
 
 
 func center_window():
@@ -69,25 +64,26 @@ func center_window():
 
 
 func _on_volume_adjust_value_changed(value: float) -> void:
-	if value == 0:
-		AudioServer.set_bus_volume_db(master_bus, -80)
-	else:
-		AudioServer.set_bus_volume_db(master_bus, linear_to_db(value / 100.0))
-		
+	SettingsManager.master_volume = value
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
+	var current := str(int(SettingsManager.master_volume))
+	$"Control/Settings Holder/Volume Holder/Slider Holder/max".text = current
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 func _on_music_adjust_value_changed(value: float) -> void:
-	if value == 0:
-		AudioServer.set_bus_volume_db(music_bus, -80)
-	else:
-		AudioServer.set_bus_volume_db(music_bus, linear_to_db(value / 100.0))
-
+	SettingsManager.music_volume = value
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
+	var current := str(int(SettingsManager.music_volume))
+	$"Control/Settings Holder/Volume Holder2/Slider Holder/max".text = current
 
 func _on_soundfx_adjust_value_changed(value: float) -> void:
-	if value == 0:
-		AudioServer.set_bus_volume_db(soundfx_bus, -80)
-	else:
-		AudioServer.set_bus_volume_db(soundfx_bus, linear_to_db(value / 100.0))
+	SettingsManager.soundfx_volume = value
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
+	var current := str(int(SettingsManager.soundfx_volume))
+	$"Control/Settings Holder/Volume Holder3/Slider Holder/max".text = current

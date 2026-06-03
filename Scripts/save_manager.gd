@@ -20,7 +20,7 @@ func create_new_save(slot: int):
 		"slot": slot,
 		"progress": 0,
 		"current_scene": "res://Scenes/Game.tscn",
-		"current_position": Vector3(0, 0, 0),
+		"current_position": Vector3(1,2,1),
 		"tutorial": false,
 		"unlocked_rooms": [],
 		"unlocked_notes": [],

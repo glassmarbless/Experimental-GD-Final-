@@ -49,17 +49,11 @@ size_flags_horizontal = 3
 [node name="Name" type="Label" parent="Control/Settings Holder/Volume Holder" unique_id=192949581]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
-text = "Volume"
+theme_override_font_sizes/font_size = 40
+text = "Master Volume"
 
 [node name="Slider Holder" type="HBoxContainer" parent="Control/Settings Holder/Volume Holder" unique_id=1198535447]
 layout_mode = 2
-
-[node name="min" type="Label" parent="Control/Settings Holder/Volume Holder/Slider Holder" unique_id=1309990405]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
-text = "0"
 
 [node name="Volume Adjust" type="HSlider" parent="Control/Settings Holder/Volume Holder/Slider Holder" unique_id=1591739601]
 layout_mode = 2
@@ -71,7 +65,7 @@ rounded = true
 [node name="max" type="Label" parent="Control/Settings Holder/Volume Holder/Slider Holder" unique_id=534407645]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "100"
 
 [node name="Resolution Holder" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1508350368]
@@ -81,7 +75,7 @@ size_flags_horizontal = 3
 [node name="Name" type="Label" parent="Control/Settings Holder/Resolution Holder" unique_id=416245865]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "Resolution"
 
 [node name="Resolution Button" type="OptionButton" parent="Control/Settings Holder/Resolution Holder" unique_id=487232469]
@@ -100,17 +94,11 @@ size_flags_horizontal = 3
 [node name="Name" type="Label" parent="Control/Settings Holder/Volume Holder2" unique_id=2094031048]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "Music"
 
 [node name="Slider Holder" type="HBoxContainer" parent="Control/Settings Holder/Volume Holder2" unique_id=894314499]
 layout_mode = 2
-
-[node name="min" type="Label" parent="Control/Settings Holder/Volume Holder2/Slider Holder" unique_id=2030769258]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
-text = "0"
 
 [node name="Music Adjust" type="HSlider" parent="Control/Settings Holder/Volume Holder2/Slider Holder" unique_id=362244912]
 layout_mode = 2
@@ -122,7 +110,7 @@ rounded = true
 [node name="max" type="Label" parent="Control/Settings Holder/Volume Holder2/Slider Holder" unique_id=1934620272]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "100"
 
 [node name="Fullscreen Holder" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1464436675]
@@ -132,7 +120,7 @@ size_flags_horizontal = 3
 [node name="Name" type="Label" parent="Control/Settings Holder/Fullscreen Holder" unique_id=1678481636]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "Fullscreen"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Settings Holder/Fullscreen Holder" unique_id=2064461160]
@@ -142,7 +130,7 @@ theme_override_constants/separation = 20
 [node name="Off" type="Label" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=580191165]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "Off"
 
 [node name="Fullscreen Button" type="CheckButton" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=328249833]
@@ -153,7 +141,7 @@ expand_icon = true
 [node name="On" type="Label" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=625180548]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "On"
 
 [node name="Volume Holder3" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1212304010]
@@ -162,17 +150,12 @@ size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="Control/Settings Holder/Volume Holder3" unique_id=14822900]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
 text = "Sound Effects"
 
 [node name="Slider Holder" type="HBoxContainer" parent="Control/Settings Holder/Volume Holder3" unique_id=1473478909]
 layout_mode = 2
-
-[node name="min" type="Label" parent="Control/Settings Holder/Volume Holder3/Slider Holder" unique_id=59304797]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
-text = "0"
 
 [node name="Soundfx Adjust" type="HSlider" parent="Control/Settings Holder/Volume Holder3/Slider Holder" unique_id=1072237230]
 layout_mode = 2
@@ -184,8 +167,69 @@ rounded = true
 [node name="max" type="Label" parent="Control/Settings Holder/Volume Holder3/Slider Holder" unique_id=1836560335]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 40
 text = "100"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Settings Holder" unique_id=1219540618]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Name" type="Label" parent="Control/Settings Holder/VBoxContainer" unique_id=1347034917]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "Controls"
+
+[node name="Movement" type="HSplitContainer" parent="Control/Settings Holder/VBoxContainer" unique_id=915664194]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="Control/Settings Holder/VBoxContainer/Movement" unique_id=306760365]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "WASD "
+
+[node name="Action" type="Label" parent="Control/Settings Holder/VBoxContainer/Movement" unique_id=827190604]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "Movement"
+horizontal_alignment = 1
+
+[node name="Interaction" type="HSplitContainer" parent="Control/Settings Holder/VBoxContainer" unique_id=993226355]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="Control/Settings Holder/VBoxContainer/Interaction" unique_id=1555350403]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "E"
+
+[node name="Action" type="Label" parent="Control/Settings Holder/VBoxContainer/Interaction" unique_id=1847195201]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "Interaction"
+horizontal_alignment = 1
+
+[node name="Instrument" type="HSplitContainer" parent="Control/Settings Holder/VBoxContainer" unique_id=2001065844]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="Control/Settings Holder/VBoxContainer/Instrument" unique_id=514337466]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "Space"
+
+[node name="Action" type="Label" parent="Control/Settings Holder/VBoxContainer/Instrument" unique_id=429073866]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "Music Player"
+horizontal_alignment = 1
 
 [node name="Back Button" type="Button" parent="Control" unique_id=1814467244]
 layout_mode = 0
@@ -197,6 +241,8 @@ theme_override_font_sizes/font_size = 36
 text = "Back"
 
 [connection signal="value_changed" from="Control/Settings Holder/Volume Holder/Slider Holder/Volume Adjust" to="." method="_on_volume_adjust_value_changed"]
+[connection signal="item_selected" from="Control/Settings Holder/Resolution Holder/Resolution Button" to="." method="_on_resolution_selected"]
 [connection signal="value_changed" from="Control/Settings Holder/Volume Holder2/Slider Holder/Music Adjust" to="." method="_on_music_adjust_value_changed"]
+[connection signal="toggled" from="Control/Settings Holder/Fullscreen Holder/HBoxContainer/Fullscreen Button" to="." method="_on_fullscreen_toggled"]
 [connection signal="value_changed" from="Control/Settings Holder/Volume Holder3/Slider Holder/Soundfx Adjust" to="." method="_on_soundfx_adjust_value_changed"]
 [connection signal="pressed" from="Control/Back Button" to="." method="_on_back_button_pressed"]
