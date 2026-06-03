@@ -170,7 +170,7 @@ texture = ExtResource("2_47aeq")
 [node name="BendMirror" parent="." unique_id=1009653989 instance=ExtResource("6_1yf2p")]
 position = Vector2(845, 652)
 rotation = -3.1415925
-scale = Vector2(0.65322816, 0.50121045)
+scale = Vector2(0.502, 0.385)
 
 [node name="Mirror" parent="." unique_id=1263438174 instance=ExtResource("5_o1atd")]
 position = Vector2(1218, 906.99994)

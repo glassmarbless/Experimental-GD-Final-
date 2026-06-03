@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://kxu02pg2bblt" path="res://Assets/Art/Map/added doorways test.fbx" id="11_dahhg"]
 [ext_resource type="Script" uid="uid://c4anlfm50wtlb" path="res://Scripts/Puzzle/PuzzlePanel.gd" id="11_igmvf"]
 [ext_resource type="PackedScene" uid="uid://bjfncwl0r4ry7" path="res://Scenes/Puzzles/LightPuzzle.tscn" id="12_m1xr4"]
+[ext_resource type="PackedScene" uid="uid://cvkgefaburx86" path="res://Assets/Map/ship/ship.glb" id="13_wk4wq"]
+[ext_resource type="Texture2D" uid="uid://cdl8r14y6xcqu" path="res://Assets/Art/blue_nebulae_1.png" id="14_knj11"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igmvf"]
 shader = ExtResource("1_m1xr4")
@@ -53,6 +55,18 @@ animations = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1xr4"]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wj3oi"]
+panorama = ExtResource("14_knj11")
+
+[sub_resource type="Sky" id="Sky_n7dph"]
+sky_material = SubResource("PanoramaSkyMaterial_wj3oi")
+radiance_size = 4
+
+[sub_resource type="Environment" id="Environment_wncpl"]
+background_mode = 2
+sky = SubResource("Sky_n7dph")
+ambient_light_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
 [node name="Game" type="Node2D" unique_id=615139604]
 visible = false
 
@@ -69,7 +83,8 @@ offset_bottom = 1110.0
 transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 15.181721, 4.034731, 0.053027153)
 
 [node name="added doorways test" parent="." unique_id=465934426 instance=ExtResource("11_dahhg")]
-transform = Transform3D(227.1994, 0, 0, 0, 209.58757, 0, 0, 0, 215.4524, 0.017437935, 0.61099243, 0.010290146)
+transform = Transform3D(227.1994, 0, 0, 0, 209.58757, 0, 0, 0, 215.4524, 0.017437935, 35.55801, 0.010290146)
+visible = false
 
 [node name="Door" type="StaticBody3D" parent="." unique_id=664750321 groups=["spell_door"]]
 transform = Transform3D(1, 0, 0, 0, -5.7199664, 0, 0, 0, 10.59586, 10.813436, 3.76958, 0.9461789)
@@ -102,3 +117,9 @@ mesh = SubResource("BoxMesh_igmvf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzlePanel" unique_id=1582178353]
 shape = SubResource("BoxShape3D_m1xr4")
+
+[node name="ship2" parent="." unique_id=328241517 instance=ExtResource("13_wk4wq")]
+transform = Transform3D(240.725, 0, 0, 0, 240.725, 0, 0, 0, 240.725, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1850067565]
+environment = SubResource("Environment_wncpl")

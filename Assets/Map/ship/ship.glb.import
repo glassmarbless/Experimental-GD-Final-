@@ -1,0 +1,86 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cvkgefaburx86"
+path="res://.godot/imported/ship.glb-e4fc893ef7f4052338d5f3b7878b20b1.scn"
+
+[deps]
+
+source_file="res://Assets/Map/ship/ship.glb"
+dest_files=["res://.godot/imported/ship.glb-e4fc893ef7f4052338d5f3b7878b20b1.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"ship_wall": {
+"generate/lightmap_uv": 1,
+"generate/lods": 1,
+"generate/shadow_meshes": 1,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
+}
+},
+"nodes": {
+"PATH:RootNode/MAIN_FLOOR/MAIN_FLOOR2": {
+"generate/physics": true
+},
+"PATH:RootNode/storae/group2/table_shelf/table_shelf2": {
+"generate/physics": true
+},
+"PATH:RootNode/storae/group2/table_shelf1/table_shelf12": {
+"generate/physics": true
+},
+"PATH:RootNode/storae/group2/table_shelf22/table_shelf23": {
+"generate/physics": true
+},
+"PATH:RootNode/storae/group2/table_shelf3/table_shelf32": {
+"generate/physics": true
+},
+"PATH:RootNode/storae1/group72/table_shelf224/table_shelf225": {
+"generate/physics": true
+},
+"PATH:RootNode/storae1/group72/table_shelf323/table_shelf324": {
+"generate/physics": true
+},
+"PATH:RootNode/wall/wall2": {
+"generate/physics": true
+},
+"PATH:RootNode/wall/wall3": {
+"generate/physics": true
+},
+"PATH:RootNode/wall/wall4": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
