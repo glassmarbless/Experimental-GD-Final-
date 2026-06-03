@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var interact_ray = $Camera3D/InteractRay
- 
+@onready var shader_test = get_tree().current_scene.get_node_or_null("ShaderTest")
 @onready var alien: AnimatedSprite3D = get_tree().get_first_node_in_group("alien")
 @export var move_speed: float = 6.0
 @export var jump_velocity: float = 4.5
@@ -35,15 +35,20 @@ var pitch: float = 0.0
 
 var note_start_x: float = 130.0
 var note_spacing: float = 120.0
-var staff_top_y: float = 170.0
+var staff_top_y: float = 180.0
 var staff_gap: float = 45.0
 
 var spells := {
-	"1234": "Spell 1",
-	"2222": "Spell 2",
-	"1111": "Spell 3",
-	"2468": "Spell 4",
-	"8765": "Spell 5"
+	"1234": "Me",
+	"2222": "Friend",
+	"1111": "Music",
+	"2468": "Spaceship",
+	"8765": "Home",
+	"4321": "Door",
+	"1357": "Open",
+	"7777": "Yes",
+	"8888": "No",
+	"1212": "You"
 }
 
 
@@ -151,9 +156,13 @@ func _physics_process(delta: float) -> void:
 
 
 func toggle_spell_book() -> void:
+	spell_book_holder.visible = !spell_book_holder.visible
+
 	spell_book_open = !spell_book_open
 	spell_book_holder.visible = spell_book_open
-
+	if shader_test:
+		shader_test.visible = !spell_book_holder.visible
+		
 	if spell_book_open:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -190,6 +199,30 @@ func play_sound(number: int) -> void:
 func draw_notes() -> void:
 	clear_notes()
 
+	var note_positions: Array[Vector2] = []
+
+	# First, work out the centre position of every note.
+	for index in range(pressed_numbers.size()):
+		var number = pressed_numbers[index]
+		var note_top_left := Vector2(
+			note_start_x + index * note_spacing,
+			get_note_y(number)
+		)
+
+		# Labels are 80x80, so +40 puts the line through the middle of the note.
+		note_positions.append(note_top_left + Vector2(40, 40))
+
+	# Draw the connecting line BEFORE the notes, so the numbers appear on top.
+	if note_positions.size() > 1:
+		var note_line := Line2D.new()
+		note_line.name = "NoteLine"
+		note_line.points = note_positions
+		note_line.width = 3.0
+		note_line.default_color = Color.WHITE
+		note_line.z_index = 0
+		notes_layer.add_child(note_line)
+
+	# Now draw the note numbers.
 	for index in range(pressed_numbers.size()):
 		var number = pressed_numbers[index]
 
@@ -198,7 +231,9 @@ func draw_notes() -> void:
 		note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		note.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		note.add_theme_font_size_override("font_size", 64)
+		note.add_theme_color_override("font_color", Color.WHITE)
 		note.size = Vector2(80, 80)
+		note.z_index = 1
 
 		note.position = Vector2(
 			note_start_x + index * note_spacing,
@@ -241,10 +276,10 @@ func check_spell() -> void:
 		spell_display.text = spell_name
 		print(spell_name)
 
-		if spell_name == "Spell 1":
+		if spell_name == "Open":
 			get_tree().call_group("spell_door", "toggle_door")
 			
-		if spell_name == "Spell 2":
+		if spell_name == "No":
 			if alien:
 				alien.flash_alien_color(Color.RED,1.5)
 			else:
