@@ -16,6 +16,11 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var notes_layer: Control = $Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/NotesLayer
 @onready var spell_display: Label = $Camera3D/SpellBookHolder/ScreenViewport/NumberOverlay2D/SpellDisplay
 
+var has_spell_book := false
+
+
+
+
 @onready var audio_players = {
 	1: $Camera3D/SpellBookHolder/Audio1,
 	2: $Camera3D/SpellBookHolder/Audio2,
@@ -156,6 +161,12 @@ func _physics_process(delta: float) -> void:
 
 
 func toggle_spell_book() -> void:
+	if not has_spell_book:
+		print("You need to pick up the spell book first")
+		return
+
+	spell_book_open = !spell_book_open
+	$SpellBookUI.visible = spell_book_open
 	spell_book_holder.visible = !spell_book_holder.visible
 
 	spell_book_open = !spell_book_open
@@ -276,7 +287,7 @@ func check_spell() -> void:
 		spell_display.text = spell_name
 		print(spell_name)
 
-		if spell_name == "Open":
+		if spell_name == "Door" or spell_name == "Open":
 			get_tree().call_group("spell_door", "toggle_door")
 			
 		if spell_name == "No":

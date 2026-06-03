@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbsokb86nu7tp"
-path="res://.godot/imported/journal notif.png-cdfc017b1222058ff8fed7d2fb1e8e12.ctex"
+path="res://.godot/imported/journal notif.png-565c546cf04364afc394c6142c7a2937.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/journal notif.png"
-dest_files=["res://.godot/imported/journal notif.png-cdfc017b1222058ff8fed7d2fb1e8e12.ctex"]
+source_file="res://Assets/UI/journaal/journal notif.png"
+dest_files=["res://.godot/imported/journal notif.png-565c546cf04364afc394c6142c7a2937.ctex"]
 
 [params]
 
