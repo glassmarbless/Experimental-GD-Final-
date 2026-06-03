@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://el8h6ue63o2c"]
+
+[ext_resource type="Script" uid="uid://c3gvkyrx6ag6w" path="res://Scripts/dialogue_box.gd" id="1_tlprh"]
+[ext_resource type="Texture2D" uid="uid://bx5sk3ony1vrx" path="res://Assets/UI/Dialogue/box_blue_name.png" id="2_hg80k"]
+[ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="3_c65s7"]
+
+[node name="Dialogue Box" type="Control" unique_id=2018870290]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tlprh")
+
+[node name="Background" type="TextureRect" parent="." unique_id=783591540]
+modulate = Color(1, 1, 1, 0.9019608)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -750.0
+offset_top = -380.0
+offset_right = 750.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_hg80k")
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="." unique_id=2022555937]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 710.0
+offset_right = 555.0
+offset_bottom = 780.0
+theme_override_colors/font_shadow_color = Color(0.39594817, 0.99969536, 0.99969536, 0.19607843)
+theme_override_colors/font_outline_color = Color(0.39607844, 1, 1, 0.3137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("3_c65s7")
+theme_override_font_sizes/font_size = 48
+text = "Alien"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="VBoxContainer" parent="." unique_id=1035654291]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 808.0
+offset_right = 1670.0
+offset_bottom = 1020.0
+theme_override_constants/separation = 10
+
+[node name="Notes" type="GridContainer" parent="Message" unique_id=211194136]
+layout_mode = 2
+columns = 10
+
+[node name="Text" type="Label" parent="Message" unique_id=1778191802]
+custom_minimum_size = Vector2(1400, 50)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.39607844, 1, 1, 0.19607843)
+theme_override_colors/font_outline_color = Color(0.39607844, 1, 1, 0.3137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("3_c65s7")
+theme_override_font_sizes/font_size = 36
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=871106368]

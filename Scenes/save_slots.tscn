@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7lggeam06fta"]
 
 [ext_resource type="Script" uid="uid://co4on1f30w51p" path="res://Scripts/save_slots.gd" id="1_d2lhe"]
+[ext_resource type="Texture2D" uid="uid://4njmdtca206j" path="res://Assets/UI/image.png" id="2_2vl7g"]
 [ext_resource type="Script" uid="uid://c728h1m2sw83p" path="res://Scripts/Save Buttons/slot_button.gd" id="2_fpea8"]
 [ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="2_gfec3"]
 [ext_resource type="Script" uid="uid://b5kag5fu5kxta" path="res://Scripts/Save Buttons/slot_button_2.gd" id="3_fpea8"]
@@ -15,7 +16,17 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
+[node name="Background" type="TextureRect" parent="Control" unique_id=84002215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2vl7g")
+
 [node name="Background placeholder" type="ColorRect" parent="Control" unique_id=772751169]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +40,7 @@ offset_left = 709.0
 offset_top = 87.0
 offset_right = 1207.5
 offset_bottom = 207.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 80
 text = "Save Slots"
@@ -52,6 +63,7 @@ theme_override_constants/separation = 80
 [node name="Slot Button" type="Button" parent="Control/VBoxContainer" unique_id=595015642]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
 script = ExtResource("2_fpea8")
@@ -59,6 +71,7 @@ script = ExtResource("2_fpea8")
 [node name="Slot Button2" type="Button" parent="Control/VBoxContainer" unique_id=1266375716]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
 script = ExtResource("3_fpea8")
@@ -66,6 +79,7 @@ script = ExtResource("3_fpea8")
 [node name="Slot Button3" type="Button" parent="Control/VBoxContainer" unique_id=203944898]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
 script = ExtResource("4_fc0cs")

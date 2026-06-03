@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cxmob0m0x73i2"]
+
+[ext_resource type="Texture2D" uid="uid://bgfh8103wsaup" path="res://Assets/Art/Ending/goodend.png" id="1_hgij7"]
+[ext_resource type="Script" uid="uid://c60w1edjlre4s" path="res://Scripts/ending.gd" id="1_td4ke"]
+[ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="2_rq2jb"]
+
+[node name="Good End" type="Node2D" unique_id=844785432]
+script = ExtResource("1_td4ke")
+
+[node name="Control" type="Control" parent="." unique_id=86738687]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=2018218817]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1825399955]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hgij7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text2" type="Label" parent="Control" unique_id=1805298647]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 47.0
+offset_right = 909.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_rq2jb")
+theme_override_font_sizes/font_size = 40
+text = "Press any key to continue"

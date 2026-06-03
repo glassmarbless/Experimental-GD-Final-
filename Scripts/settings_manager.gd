@@ -9,6 +9,7 @@ var master_volume: float = 100.0
 var music_volume: float = 100.0
 var soundfx_volume: float = 100.0
 
+var previous_scene := ""
 
 func _ready() -> void:
 	load_settings()
