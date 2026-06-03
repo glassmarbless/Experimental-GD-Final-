@@ -29,6 +29,12 @@ var control_enabled := true
 	#8: $Camera3D/SpellBookHolder/Audio8
 }
 
+var has_spell_book := true
+
+func unlock_spell_book() -> void:
+	has_spell_book = true
+	print("Player now has spell book")
+
 var spell_book_open: bool = false
 var pressed_numbers: Array[int] = []
 
@@ -161,25 +167,23 @@ func _physics_process(delta: float) -> void:
 
 
 func toggle_spell_book() -> void:
-	spell_book_holder.visible = !spell_book_holder.visible
+	# Spell book can be used from the start of the game.
+	has_spell_book = true
 
 	spell_book_open = !spell_book_open
 	spell_book_holder.visible = spell_book_open
+
 	if shader_test:
-		shader_test.visible = !spell_book_holder.visible
-		
+		shader_test.visible = !spell_book_open
+
 	if spell_book_open:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
 		pressed_numbers.clear()
 		clear_notes()
 		spell_display.text = ""
-
 		print("Spell book opened")
-
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
 		print("Spell book closed")
 
 func add_number(number: int) -> void:
@@ -281,7 +285,7 @@ func check_spell() -> void:
 		spell_display.text = spell_name
 		print(spell_name)
 
-		if spell_name == "Open":
+		if spell_name == "Door" or spell_name == "Open":
 			get_tree().call_group("spell_door", "toggle_door")
 			
 		if spell_name == "No":

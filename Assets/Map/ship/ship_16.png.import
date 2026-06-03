@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mr221t3fsiql"
+uid="uid://c6ymjjgmqa4cw"
 path.s3tc="res://.godot/imported/ship_16.png-350929b0a65ccbf6617ff728eb6d16cc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -29,8 +29,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=8
-roughness/src_normal="res://Assets/Map/ship/ship_17.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
