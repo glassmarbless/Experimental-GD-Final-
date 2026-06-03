@@ -2,15 +2,15 @@ extends Node
 
 #template: "hello": "res://Assets/UI/spells/hello.png",
 signal spell_discovered(spell_name: String)
-var discovered_spells: Array[String] = []
+var discovered_spells: Array = []
 var spell_images := {
-	"door": "res://Assets/Art/in game/journal combos/door.png",
-	"friend": "res://Assets/Art/in game/journal combos/friend.png",
-	"home": "res://Assets/Art/in game/journal combos/Home.png",
-	"me": "res://Assets/Art/in game/journal combos/me.png",
-	"no": "res://Assets/Art/in game/journal combos/NO.png",
-	"yes": "res://Assets/Art/in game/journal combos/YES.png",
-	"you": "res://Assets/Art/in game/journal combos/You.png"
+	"door": "res://Assets/Art/in game/journal combos/door (1).png",
+	"friend": "res://Assets/Art/in game/journal combos/friend (1).png",
+	"home": "res://Assets/Art/in game/journal combos/home (1).png",
+	"me": "res://Assets/Art/in game/journal combos/me (1).png",
+	"no": "res://Assets/Art/in game/journal combos/no (1).png",
+	"yes": "res://Assets/Art/in game/journal combos/yes (1).png",
+	"you": "res://Assets/Art/in game/journal combos/you (1).png"
 }
 
 func discover_spell(spell_name: String) -> void:

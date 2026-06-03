@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cxmob0m0x73i2"]
+
+[node name="Good End" type="Node2D" unique_id=844785432]
+
+[node name="Control" type="Control" parent="." unique_id=86738687]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1825399955]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

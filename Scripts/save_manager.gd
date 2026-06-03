@@ -19,8 +19,11 @@ func create_new_save(slot: int):
 	var data = {
 		"slot": slot,
 		"progress": 0,
-		"current_scene": "res://Scenes/Game.tscn",
-		"current_position": Vector3(1,2,1),
+		"current_scene": "res://Scenes/Game2.tscn",
+		"current_position": Vector3(0,3,35),
+		"player_rotation": Vector3(0,0,0),
+		"camera_yaw": Vector3(0,0,0),
+		"camera_pitch": Vector3(0,0,0),
 		"tutorial": false,
 		"unlocked_rooms": [],
 		"unlocked_spells": [],

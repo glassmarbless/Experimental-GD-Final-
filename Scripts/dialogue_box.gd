@@ -2,27 +2,36 @@ extends Control
 
 @onready var grid = $Message/Notes
 @onready var text_lable = $Message/Text
+@onready var audio_player = $AudioStreamPlayer
 
-var images = {}
+var images = SpellManager.spell_images
 
 var typing_speed := 0.03
 var full_text := ""
 var is_typing := false
 
-func show_message(words: Array[String], translation: String):
+func show_message(words: Array, text: String):
 	clear_images()
 	for word in words:
 		add_word_image(word)
-		await get_tree().create_timer(0.3).timeout
+		var notes = SpellManager.get_spell_notes(word)
+		for note_path in notes:
+			var stream = load(note_path)
+			if stream == null:
+				continue
+			audio_player.stream = stream
+			audio_player.play()
+			await get_tree().create_timer(0.8).timeout
+		audio_player.stop()
+		await get_tree().create_timer(1.2).timeout
 	
-	await get_tree().create_timer(0.5).timeout
-	type_text(translation)
 		
 func add_word_image(word: String):
 	if !images.has(word):
 		return
 	var texture_rect := TextureRect.new()
 	texture_rect.texture = load(images[word])
+	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 	texture_rect.custom_minimum_size = Vector2(80, 80)
 	grid.add_child(texture_rect)
 

@@ -17,19 +17,8 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void: 
 	if finished:
-		show_continue()
-
-func show_continue():
-	await get_tree().create_timer(1).timeout
-	cont_text.visible = true
-	start_continue_flash()
-
-func start_continue_flash():
-	var tween = create_tween()
-	tween.set_loops()
-
-	tween.tween_property(cont_text, "modulate:a", 0.5, 0.5)
-	tween.tween_property(cont_text, "modulate:a", 1.0, 0.5)
+		await get_tree().create_timer(1).timeout
+		cont_text.visible = true
 
 func type_text():
 	story_text.text = ""
@@ -47,3 +36,5 @@ func _input(event):
 		story_text.text = full_text
 		is_typing = false
 		finished = true
+	if event.is_action_pressed("interact") and finished:
+		get_tree().change_scene_to_file("res://Scenes/Game2.tscn")

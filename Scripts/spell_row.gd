@@ -30,7 +30,7 @@ func play_spell_notes():
 		audio_player.stream = stream
 		audio_player.play()
 
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(0.8).timeout
 	audio_player.stop()
 
 	is_playing_notes = false

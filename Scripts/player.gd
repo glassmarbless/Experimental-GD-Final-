@@ -10,6 +10,9 @@ extends CharacterBody3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var control_enabled := true
+signal alien_int
+signal spell_played(spell_name: String)
+var entered_dialogue := false
 
 @onready var camera: Camera3D = $Camera3D
 @onready var spell_book_holder: Node3D = $Camera3D/SpellBookHolder
@@ -87,6 +90,10 @@ func _process(delta: float) -> void:
 			if obj.is_in_group("puzzle_panel"):
 				print("This is a puzzle panel")
 				obj.interact()
+			if obj.is_in_group("alien") and not entered_dialogue:
+				print("This is an alien")
+				alien_int.emit()
+				entered_dialogue = true
 		else:
 			print("Hit object is NOT in puzzle_panel group")
 	#else:
@@ -97,10 +104,7 @@ func _input(event: InputEvent) -> void:
 		toggle_spell_book()
 		return
 
-	if not spell_book_open:
-		
-		if not control_enabled:
-			return
+	if control_enabled:
 
 		var viewport_size := get_viewport().get_visible_rect().size
 		var mouse_pos := get_viewport().get_mouse_position()
@@ -136,8 +140,6 @@ func _input(event: InputEvent) -> void:
 		rotation_degrees.y = yaw
 		camera.rotation_degrees.x = pitch
 
-	if not spell_book_open:
-		return
 
 	for i in range(1,9):
 		if event.is_action_pressed("number_%d" % i):
@@ -151,7 +153,7 @@ func _physics_process(delta: float) -> void:
 
 	var input_dir := Vector2.ZERO
 
-	if not spell_book_open:
+	if control_enabled:
 		input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -177,12 +179,14 @@ func toggle_spell_book() -> void:
 		shader_test.visible = !spell_book_open
 
 	if spell_book_open:
+		control_enabled = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pressed_numbers.clear()
 		clear_notes()
 		spell_display.text = ""
 		print("Spell book opened")
 	else:
+		control_enabled = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		print("Spell book closed")
 
@@ -284,6 +288,7 @@ func check_spell() -> void:
 		var spell_name = spells[combo]
 		spell_display.text = spell_name
 		print(spell_name)
+		spell_played.emit(spell_name)
 
 		if spell_name == "Door" or spell_name == "Open":
 			get_tree().call_group("spell_door", "toggle_door")

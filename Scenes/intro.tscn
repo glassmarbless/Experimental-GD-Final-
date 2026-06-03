@@ -30,9 +30,9 @@ loop = true
 
 [node name="Story" type="Label" parent="Control" unique_id=1449388218]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 81.0
-offset_right = 1834.0
+offset_left = 136.0
+offset_top = 103.0
+offset_right = 1735.0
 offset_bottom = 824.0
 theme_override_fonts/font = ExtResource("3_alxvg")
 theme_override_font_sizes/font_size = 40
@@ -40,10 +40,10 @@ autowrap_mode = 2
 
 [node name="Continue" type="Label" parent="Control" unique_id=1708450511]
 layout_mode = 0
-offset_left = 1190.0
-offset_top = 917.0
-offset_right = 1850.0
-offset_bottom = 1028.0
+offset_left = 1171.0
+offset_top = 903.0
+offset_right = 1810.0
+offset_bottom = 988.0
 theme_override_fonts/font = ExtResource("3_alxvg")
 theme_override_font_sizes/font_size = 40
 text = "Press E to continue..."
