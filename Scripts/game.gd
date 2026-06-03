@@ -54,6 +54,7 @@ func _ready() -> void:
 	journal.visible = false
 	connect_doors()
 	connect_alien()
+	connect_spell()
 	
 	call_deferred("load_game_progress")
 
@@ -114,8 +115,6 @@ func save_game_progress():
 	SaveManager.save_game(SaveManager.current_slot, data)
 
 	print("Game saved")
-	print(player.yaw)
-	print(player.pitch)
 
 func load_game_progress():
 	var data = SaveManager.load_game(SaveManager.current_slot)
@@ -164,6 +163,10 @@ func dialogue_mode():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("interact"):
+		if dialogue_index >= alien_dialogues.size():
+			print("code reaches trigger end")
+			trigger_game_end(1)
+			return
 		if dialogue_state and not waiting_player_action:
 			show_music_player_stage()
 
@@ -173,17 +176,20 @@ func _unhandled_input(event):
 
 func play_next_alien_dialogue():
 	if dialogue_index >= alien_dialogues.size():
+		print("code reaches trigger end")
 		trigger_game_end(1)
 		return
 	waiting_player_action = false
 	var line = alien_dialogues[dialogue_index]
+	print(line)
 	dialogue_box.show_message(
 		line["words"],
 		line["text"]
 	)
-	dialogue_index += 1
-		
 	
+	if dialogue_index < 5:
+		dialogue_index += 1
+		
 func show_music_player_stage():
 	if not player.spell_book_open:
 		player.toggle_spell_book()
@@ -196,8 +202,10 @@ func player_finished_music_stage():
 
 	if dialogue_index == 4:
 		if being_nice:
+			print("code reaches trigger end")
 			play_next_alien_dialogue()
 		else:
+			print("code reaches trigger end")
 			trigger_game_end(2)
 			
 	play_next_alien_dialogue()
@@ -210,9 +218,7 @@ func end_dialogue_mode():
 	if player.spell_book_open:
 		player.toggle_spell_book()
 	HUD.visible = true
-
 	set_player_control(true)
-
 	print("Dialogue mode finished")
 	
 func look_at_alien():
@@ -254,6 +260,8 @@ func connect_spell():
 	player.spell_played.connect(_on_player_spell_played)
 
 func _on_player_spell_played(spell_name: String):
+	print("signal connected: ", spell_name)
+	print("index: ", dialogue_index)
 	if not dialogue_state:
 		return
 	if not waiting_player_action:
@@ -267,6 +275,7 @@ func _on_player_spell_played(spell_name: String):
 		player_finished_music_stage()
 
 func trigger_game_end(ending: int):
+	dialogue_box.stop_dialogue()
 	end_dialogue_mode()
 	game_end = true
 	if ending == 1:

@@ -19,6 +19,12 @@ func _on_pressed():
 	if SaveManager.save_exists(slot_number):
 		var data = SaveManager.load_game(slot_number)
 		print("Loaded data: ", data)
+		
+		if data["choices_made"].has("good_end"):
+			get_tree().change_scene_to_file("res://Scenes/good_end.tscn")
+		
+		if data["choices_made"].has("bad_end"):
+			get_tree().change_scene_to_file("res://Scenes/bad_end.tscn")
 
 		get_tree().change_scene_to_file(data["current_scene"])
 	else:
