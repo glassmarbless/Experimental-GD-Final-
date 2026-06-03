@@ -10,7 +10,8 @@ func _ready():
 func update_button_text():
 	if SaveManager.save_exists(slot_number):
 		var data = SaveManager.load_game(slot_number)
-		text = "Load Slot %d\n%s" % [slot_number, data["last_save_time"]]
+		var save_time = data.get("last_save_time", "Unknown save time")
+		text = "Load Slot %d\n%s" % [slot_number, save_time]
 	else:
 		text = "New Game Slot %d" % slot_number
 
@@ -19,14 +20,19 @@ func _on_pressed():
 	if SaveManager.save_exists(slot_number):
 		var data = SaveManager.load_game(slot_number)
 		print("Loaded data: ", data)
-		
-		if data["choices_made"].has("good_end"):
-			get_tree().change_scene_to_file("res://Scenes/good_end.tscn")
-		
-		if data["choices_made"].has("bad_end"):
-			get_tree().change_scene_to_file("res://Scenes/bad_end.tscn")
 
-		get_tree().change_scene_to_file(data["current_scene"])
+		var choices = data.get("choices_made", [])
+
+		if choices.has("good_end"):
+			get_tree().change_scene_to_file("res://Scenes/good_end.tscn")
+			return
+		
+		if choices.has("bad_end"):
+			get_tree().change_scene_to_file("res://Scenes/bad_end.tscn")
+			return
+
+		var scene_path = data.get("current_scene", "res://Scenes/Game2.tscn")
+		get_tree().change_scene_to_file(scene_path)
 	else:
 		SaveManager.create_new_save(slot_number)
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
