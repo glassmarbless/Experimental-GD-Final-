@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyf32pkr3tdbg"
+path="res://.godot/imported/841782__silverillusionist__jumpscare-frozen-in-fear (1).wav-dafaf68076cc897b0bf2048a13c5b9ed.sample"
+
+[deps]
+
+source_file="res://Assets/Art/Audio/Interactions/841782__silverillusionist__jumpscare-frozen-in-fear (1).wav"
+dest_files=["res://.godot/imported/841782__silverillusionist__jumpscare-frozen-in-fear (1).wav-dafaf68076cc897b0bf2048a13c5b9ed.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

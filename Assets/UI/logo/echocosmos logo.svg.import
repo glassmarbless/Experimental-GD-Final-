@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caa2o6dm66lpv"
-path="res://.godot/imported/echocosmos logo.svg-409de91b9b2bd3fb599683d792e99abc.ctex"
+path="res://.godot/imported/echocosmos logo.svg-fe73111be68d320340bec6cce54c372b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/echocosmos logo.svg"
-dest_files=["res://.godot/imported/echocosmos logo.svg-409de91b9b2bd3fb599683d792e99abc.ctex"]
+source_file="res://Assets/UI/logo/echocosmos logo.svg"
+dest_files=["res://.godot/imported/echocosmos logo.svg-fe73111be68d320340bec6cce54c372b.ctex"]
 
 [params]
 
