@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bjfncwl0r4ry7"]
 
-[ext_resource type="Script" uid="uid://d2bdsnwsrtuun" path="res://Scripts/light_source.gd" id="1_47aeq"]
-[ext_resource type="Script" uid="uid://ca1y6in7k7nc3" path="res://Scripts/LightPuzzle.gd" id="1_xsqeo"]
+[ext_resource type="Script" uid="uid://d2bdsnwsrtuun" path="res://Scripts/Puzzle/light_source.gd" id="1_47aeq"]
+[ext_resource type="Script" uid="uid://ca1y6in7k7nc3" path="res://Scripts/Puzzle/LightPuzzle.gd" id="1_xsqeo"]
 [ext_resource type="Texture2D" uid="uid://bfexviq8mmkwh" path="res://Assets/Art/images (1).png" id="2_47aeq"]
-[ext_resource type="Script" uid="uid://dsf3tdc7ibfq6" path="res://Scripts/EndTarget.gd" id="3_m02al"]
+[ext_resource type="Script" uid="uid://dsf3tdc7ibfq6" path="res://Scripts/Puzzle/EndTarget.gd" id="3_m02al"]
 [ext_resource type="PackedScene" uid="uid://bfxish7y4a1gn" path="res://Scenes/Puzzles/Mirror.tscn" id="5_o1atd"]
 [ext_resource type="PackedScene" uid="uid://b4hjfhwox5dfj" path="res://Scenes/Puzzles/BendMirror.tscn" id="6_1yf2p"]
 

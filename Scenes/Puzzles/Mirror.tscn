@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfxish7y4a1gn"]
 
-[ext_resource type="Script" uid="uid://caeim5fcrm140" path="res://Scripts/Mirror.gd" id="1_4gbad"]
+[ext_resource type="Script" uid="uid://caeim5fcrm140" path="res://Scripts/Puzzle/Mirror.gd" id="1_4gbad"]
 [ext_resource type="Texture2D" uid="uid://5pfxntkgrx1" path="res://Assets/Art/pngtree-realistic-rectangle-mirror-with-metal-frame-png-image_10008597.png" id="2_1x7ex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox6id"]

@@ -43,7 +43,7 @@ var spells := {
 	"2222": "Friend",
 	"1111": "Music",
 	"2468": "Spaceship",
-	"8765": "Home",
+	"1818": "Home",
 	"4321": "Door",
 	"1357": "Open",
 	"7777": "Yes",

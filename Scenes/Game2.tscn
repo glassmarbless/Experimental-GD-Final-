@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://2hyyc6wqpqlo" path="res://Assets/Art/in game/alien/frames/alien (5).PNG" id="8_wk4wq"]
 [ext_resource type="Script" uid="uid://c2fpwwcgnmxkv" path="res://Scripts/Alien.gd" id="9_knj11"]
 [ext_resource type="PackedScene" uid="uid://kxu02pg2bblt" path="res://Assets/Art/Map/added doorways test.fbx" id="11_dahhg"]
-[ext_resource type="Script" uid="uid://c4anlfm50wtlb" path="res://Scripts/PuzzlePanel.gd" id="11_igmvf"]
+[ext_resource type="Script" uid="uid://c4anlfm50wtlb" path="res://Scripts/Puzzle/PuzzlePanel.gd" id="11_igmvf"]
 [ext_resource type="PackedScene" uid="uid://bjfncwl0r4ry7" path="res://Scenes/Puzzles/LightPuzzle.tscn" id="12_m1xr4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igmvf"]

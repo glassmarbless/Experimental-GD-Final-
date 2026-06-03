@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4hjfhwox5dfj"]
 
-[ext_resource type="Script" uid="uid://dtxk65xxbty5s" path="res://Scripts/BendMirror.gd" id="1_g1ysc"]
+[ext_resource type="Script" uid="uid://dtxk65xxbty5s" path="res://Scripts/Puzzle/BendMirror.gd" id="1_g1ysc"]
 [ext_resource type="Texture2D" uid="uid://lrv22t4rp7uq" path="res://Assets/Art/TEMP ART (NOTE REMOVE THIS ONECE MERGED)/glass_prism.png" id="2_r6aik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhwjg"]
