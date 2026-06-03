@@ -1,15 +1,27 @@
 [gd_scene format=3 uid="uid://c72xqbvemsgfx"]
 
+[ext_resource type="Script" uid="uid://d1upp8vk84mlg" path="res://Scripts/game.gd" id="1_lglut"]
 [ext_resource type="Shader" uid="uid://cdljenyytbtrt" path="res://Scripts/VHS.gdshader" id="1_m1xr4"]
 [ext_resource type="PackedScene" uid="uid://b6kn0rk0qv5k7" path="res://Scenes/Player.tscn" id="2_gl6un"]
+[ext_resource type="Texture2D" uid="uid://x2r2slnawhrh" path="res://Assets/Art/in game/HUDtransparent.png" id="3_hekyj"]
 [ext_resource type="Script" uid="uid://dy0nbp4qyb1vs" path="res://Scripts/Door.gd" id="3_j5yw3"]
 [ext_resource type="Texture2D" uid="uid://docn5x8ort4i2" path="res://Assets/Art/in game/alien/frames/alien (1).PNG" id="4_87gmd"]
+[ext_resource type="Texture2D" uid="uid://db4rawt7v6ggt" path="res://Assets/UI/buttons/play (1).png" id="4_yj6jl"]
+[ext_resource type="Texture2D" uid="uid://bibdf3555xjh5" path="res://Assets/UI/buttons/play_hover.png" id="5_qi67e"]
 [ext_resource type="Texture2D" uid="uid://1algf1cbqgfl" path="res://Assets/Art/in game/alien/frames/alien (2).PNG" id="5_wn3eo"]
+[ext_resource type="Texture2D" uid="uid://bhegtq1vtoyb6" path="res://Assets/UI/buttons/settings (1).png" id="6_8sn34"]
+[ext_resource type="Texture2D" uid="uid://840ypgas4kb8" path="res://Assets/UI/buttons/quit (1).png" id="6_dypsy"]
 [ext_resource type="Texture2D" uid="uid://crifp13258442" path="res://Assets/Art/in game/alien/frames/alien (3).PNG" id="6_igmvf"]
+[ext_resource type="Texture2D" uid="uid://c3yb06x87mqjt" path="res://Assets/UI/buttons/quit_hover.png" id="7_8sn34"]
+[ext_resource type="Texture2D" uid="uid://58sb0bldbhob" path="res://Assets/UI/buttons/settings_hover.png" id="7_l03nh"]
 [ext_resource type="Texture2D" uid="uid://dgi4k2pivjmu5" path="res://Assets/Art/in game/alien/frames/alien (4).PNG" id="7_m1xr4"]
+[ext_resource type="PackedScene" uid="uid://el8h6ue63o2c" path="res://Scenes/dialogue_box.tscn" id="8_l03nh"]
 [ext_resource type="Texture2D" uid="uid://2hyyc6wqpqlo" path="res://Assets/Art/in game/alien/frames/alien (5).PNG" id="8_wk4wq"]
 [ext_resource type="Script" uid="uid://c2fpwwcgnmxkv" path="res://Scripts/Alien.gd" id="9_knj11"]
+[ext_resource type="PackedScene" uid="uid://b30lsf3fhuy5b" path="res://Scenes/journal.tscn" id="9_yj6jl"]
 [ext_resource type="Script" uid="uid://c4anlfm50wtlb" path="res://Scripts/Puzzle/PuzzlePanel.gd" id="11_igmvf"]
+[ext_resource type="Texture2D" uid="uid://dmuydr8s726k0" path="res://Assets/UI/journaal/journal notifs popout.png" id="12_8sn34"]
+[ext_resource type="Script" uid="uid://cobcpelvqx04l" path="res://Scripts/journal_notification.gd" id="12_l03nh"]
 [ext_resource type="PackedScene" uid="uid://bjfncwl0r4ry7" path="res://Scenes/Puzzles/LightPuzzle.tscn" id="12_m1xr4"]
 [ext_resource type="Texture2D" uid="uid://0q02vrkuvrcv" path="res://Assets/Map/blue_nebulae_1.png" id="13_knj11"]
 [ext_resource type="PackedScene" uid="uid://bm522hd5wtsua" path="res://Assets/Map/SHIP VER 3/SHIP 23.glb" id="14_knj11"]
@@ -17,7 +29,7 @@
 [ext_resource type="Script" uid="uid://cxl0jdc4dybmy" path="res://Scripts/RisingDoor.gd" id="15_n7dph"]
 [ext_resource type="Script" uid="uid://pg6ovomx8jeu" path="res://Scripts/Button.gd" id="15_wj3oi"]
 [ext_resource type="PackedScene" uid="uid://dco5tl280hlbk" path="res://Assets/Art/in game/Body/TornCorpse.fbx" id="17_wncpl"]
-[ext_resource type="PackedScene" uid="uid://by01tu2bb72iy" path="res://Assets/Art/instrument/Untitled.glb" id="18_idgkg"]
+[ext_resource type="PackedScene" uid="uid://bf2ds12wlakam" path="res://Assets/Art/instrument/Untitled.glb" id="18_idgkg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igmvf"]
 shader = ExtResource("1_m1xr4")
@@ -49,6 +61,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dypsy"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_igmvf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1xr4"]
@@ -74,6 +88,7 @@ sky = SubResource("Sky_n7dph")
 
 [node name="Game" type="Node2D" unique_id=615139604]
 visible = false
+script = ExtResource("1_lglut")
 
 [node name="ShaderTest" type="CanvasLayer" parent="." unique_id=286054974]
 
@@ -85,6 +100,95 @@ offset_bottom = 1110.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=67659190]
 layer = 11
 
+[node name="UI" type="CanvasLayer" parent="." unique_id=743504409]
+
+[node name="HUD" type="Control" parent="UI" unique_id=922980971]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD" unique_id=455109982]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_hekyj")
+
+[node name="Dialogue Box" parent="UI" unique_id=2018870290 instance=ExtResource("8_l03nh")]
+
+[node name="Journal" parent="UI" unique_id=143678753 instance=ExtResource("9_yj6jl")]
+
+[node name="Pause Panel" type="Control" parent="UI" unique_id=2079528911]
+process_mode = 3
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause Panel" unique_id=834351142]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.0
+offset_top = -226.0
+offset_right = 341.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume Button" type="TextureButton" parent="UI/Pause Panel/VBoxContainer" unique_id=1311600736]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 5
+texture_normal = ExtResource("4_yj6jl")
+texture_hover = ExtResource("5_qi67e")
+
+[node name="Settings Button" type="TextureButton" parent="UI/Pause Panel/VBoxContainer" unique_id=120313399]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 5
+texture_normal = ExtResource("6_8sn34")
+texture_hover = ExtResource("7_l03nh")
+
+[node name="Quit Button" type="TextureButton" parent="UI/Pause Panel/VBoxContainer" unique_id=20805805]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 5
+texture_normal = ExtResource("6_dypsy")
+texture_hover = ExtResource("7_8sn34")
+
+[node name="Journal Notification" type="Control" parent="UI" unique_id=432720230]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1623.0
+offset_top = 220.0
+offset_right = 4.0
+offset_bottom = -752.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_l03nh")
+
+[node name="Notification Button" type="TextureButton" parent="UI/Journal Notification" unique_id=1891551552]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 288.0
+texture_normal = ExtResource("12_8sn34")
+ignore_texture_size = true
+stretch_mode = 4
+
 [node name="Player" parent="." unique_id=954489223 groups=["player"] instance=ExtResource("2_gl6un")]
 transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 0.3791263, 3.091133, 35.473232)
 
@@ -92,9 +196,15 @@ transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 0.379
 transform = Transform3D(0.8580581, 0, 0, 0, 0.71655476, 0, 0, 0, 1, 25.314623, 3.221173, -0.027822495)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_wj3oi")
-frame_progress = 0.8150153
+frame_progress = 0.46952996
 script = ExtResource("9_knj11")
 player_path = NodePath("../Player")
+
+[node name="Area3D" type="Area3D" parent="Alien" unique_id=1060770641 groups=["alien"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Alien/Area3D" unique_id=854397616 groups=["alien"]]
+transform = Transform3D(4.581656, 0, 0, 0, 5.522497, 0, 0, 0, 3.7993016, -0.9573593, 0, 0.1538564)
+shape = SubResource("CapsuleShape3D_dypsy")
 
 [node name="PuzzlePanel" type="Area3D" parent="." unique_id=1264168522 node_paths=PackedStringArray("canvas_layer") groups=["puzzle_panel"]]
 transform = Transform3D(-5.2466508e-08, 0, 0.29118088, 0, 0.9809854, 0, -1.2002938, 0, -1.2727921e-08, 13.142629, 3.3282955, -4.2947717)
@@ -116,7 +226,7 @@ light_energy = 0.159
 environment = SubResource("Environment_wncpl")
 
 [node name="SHIP 23" parent="." unique_id=647020656 instance=ExtResource("14_knj11")]
-transform = Transform3D(256.215, 0, 0, 0, 256.215, 0, 0, 0, 256.215, 0, 0, 0)
+transform = Transform3D(256.215, 0, 0, 0, 256.215, 0, 0, 0, 256.215, 0.038869858, 4.7683716e-07, -0.037078857)
 
 [node name="TornCorpse2" parent="." unique_id=1708092207 instance=ExtResource("17_wncpl")]
 transform = Transform3D(1.9647408, -1.5681583e-07, 1.5836332e-07, 1.7176309e-07, 1.7937639, 1.5836332e-07, -1.717631e-07, -1.568158e-07, 1.8114653, 1.9009066, -1.4545677, 17.40895)
@@ -130,6 +240,7 @@ transform = Transform3D(1.443926, 0, 0, 0, 1, 0, 0, 0, 1.4771309, -0.2557084, 0.
 [node name="Lab door" parent="." unique_id=1612493728 groups=["spell_door"] instance=ExtResource("14_wj3oi")]
 transform = Transform3D(0.352, 0, 0, 0, 250, 0, 0, 0, 432.094, 13.08, -29.162, 1.741)
 script = ExtResource("3_j5yw3")
+door_name = "lab_door"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Lab door" unique_id=754602329 groups=["spell_door"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 2.4394696, 0, 0.12763707, 0)
@@ -147,6 +258,7 @@ shape = SubResource("BoxShape3D_wj3oi")
 [node name="Lab door2" parent="." unique_id=1270258669 groups=["spell_door"] instance=ExtResource("14_wj3oi")]
 transform = Transform3D(0.352, 0, 0, 0, 250, 0, 0, 0, 432.094, -12.845, -29.162, 1.741)
 script = ExtResource("3_j5yw3")
+door_name = "lab_door_2"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Lab door2" unique_id=1545282444 groups=["spell_door"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
@@ -164,6 +276,7 @@ shape = SubResource("BoxShape3D_knj11")
 [node name="Start Game door" parent="." unique_id=772777480 groups=["button_door"] instance=ExtResource("14_wj3oi")]
 transform = Transform3D(-1.7397133e-08, 0, 243.952, 0, 247.043, 0, -0.398, 0, -1.0663481e-05, 0.0025434494, -28.681797, 26.657314)
 script = ExtResource("15_n7dph")
+door_name = "door_0"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Start Game door" unique_id=1347531707 groups=["spell_door"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
@@ -231,6 +344,7 @@ shape = SubResource("BoxShape3D_m1xr4")
 [node name="Door2" parent="." unique_id=337304827 groups=["button_door"] instance=ExtResource("14_wj3oi")]
 transform = Transform3D(0.33, 0, 0, 0, 243.436, 0, 0, 0, 349.402, -13.014041, -28.682, 12.316)
 script = ExtResource("15_n7dph")
+door_name = "door_2"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door2" unique_id=1992842226 groups=["spell_door"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
@@ -259,6 +373,7 @@ shape = SubResource("BoxShape3D_m1xr4")
 [node name="Door3" parent="." unique_id=1892297592 groups=["button_door"] instance=ExtResource("14_wj3oi")]
 transform = Transform3D(0.33, 0, 0, 0, 243.436, 0, 0, 0, 349.402, -13.014041, -28.682, -9.679748)
 script = ExtResource("15_n7dph")
+door_name = "door_3"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door3" unique_id=189892266 groups=["spell_door"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
@@ -287,6 +402,7 @@ shape = SubResource("BoxShape3D_m1xr4")
 [node name="Door4" parent="." unique_id=1484849586 groups=["button_door"] instance=ExtResource("14_wj3oi")]
 transform = Transform3D(0.33, 0, 0, 0, 243.436, 0, 0, 0, 349.402, 12.932, -28.682, -9.742133)
 script = ExtResource("15_n7dph")
+door_name = "door_4"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door4" unique_id=1495285523 groups=["spell_door"]]
 transform = Transform3D(0.9999999, 0, 0, 0, 2.3171175, 0, 0, 0, 1.7842921, 0, 0.12763707, 0)
@@ -311,3 +427,8 @@ mesh = SubResource("BoxMesh_igmvf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button4" unique_id=839798252]
 shape = SubResource("BoxShape3D_m1xr4")
+
+[connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UI/Journal Notification/Notification Button" to="." method="_on_notification_button_pressed"]

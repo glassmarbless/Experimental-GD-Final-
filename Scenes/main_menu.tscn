@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://c05a2ydv66ip8"]
 
 [ext_resource type="Script" uid="uid://daciq0jxc555u" path="res://Scripts/main_menu.gd" id="1_28flt"]
-[ext_resource type="Texture2D" uid="uid://fsat4mxexlyu" path="res://Assets/UI/buttons/play (1).png" id="2_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://db4rawt7v6ggt" path="res://Assets/UI/buttons/play (1).png" id="2_cp0ys"]
+[ext_resource type="VideoStream" uid="uid://4n28yp8paasg" path="res://Assets/Art/main menu/space scene/main-menu-ship-loop.ogv" id="2_trj04"]
 [ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="2_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://c0vs3dcf6p3vo" path="res://Assets/UI/buttons/play_hover.png" id="3_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://cfnm1o8pr6jfn" path="res://Assets/UI/buttons/settings (1).png" id="4_trj04"]
-[ext_resource type="Texture2D" uid="uid://drhh78kpbeuna" path="res://Assets/UI/buttons/settings_hover.png" id="5_16hvj"]
-[ext_resource type="Texture2D" uid="uid://bitdrywopb41p" path="res://Assets/UI/buttons/quit (1).png" id="6_vr1f0"]
-[ext_resource type="Texture2D" uid="uid://sr7kjsyedvr2" path="res://Assets/UI/buttons/quit_hover.png" id="7_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://dih7bvxoaqxht" path="res://Assets/UI/logo/echosmos logo.png" id="3_16hvj"]
+[ext_resource type="Texture2D" uid="uid://bibdf3555xjh5" path="res://Assets/UI/buttons/play_hover.png" id="3_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://bhegtq1vtoyb6" path="res://Assets/UI/buttons/settings (1).png" id="4_trj04"]
+[ext_resource type="Texture2D" uid="uid://58sb0bldbhob" path="res://Assets/UI/buttons/settings_hover.png" id="5_16hvj"]
+[ext_resource type="Texture2D" uid="uid://840ypgas4kb8" path="res://Assets/UI/buttons/quit (1).png" id="6_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://c3yb06x87mqjt" path="res://Assets/UI/buttons/quit_hover.png" id="7_t1dhk"]
 
 [node name="Main Menu" type="Node2D" unique_id=1835588429]
 script = ExtResource("1_28flt")
@@ -22,60 +24,83 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background placeholder" type="ColorRect" parent="Control" unique_id=346038855]
+[node name="Background" type="VideoStreamPlayer" parent="Control" unique_id=266589293]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stream = ExtResource("2_trj04")
+autoplay = true
+loop = true
+
+[node name="Title" type="TextureRect" parent="Control" unique_id=1162500432]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 129.0
+offset_right = 1446.0
+offset_bottom = 409.0
+texture = ExtResource("3_16hvj")
+stretch_mode = 4
 
 [node name="Name" type="Label" parent="Control" unique_id=1699739500]
+visible = false
 layout_mode = 0
-offset_left = 737.0
-offset_top = 141.0
-offset_right = 1235.5
-offset_bottom = 261.0
+offset_left = 587.0
+offset_top = 117.0
+offset_right = 1404.0
+offset_bottom = 383.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.39215687)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.47058824)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 40
 theme_override_fonts/font = ExtResource("2_yhxw7")
-theme_override_font_sizes/font_size = 80
-text = "Game Name"
+theme_override_font_sizes/font_size = 120
+text = "ECHOSMOS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=141474272]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -341.0
-offset_top = -213.0
-offset_right = 341.0
-offset_bottom = 213.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
+layout_mode = 0
+offset_left = 669.0
+offset_top = 750.0
+offset_right = 1316.0
+offset_bottom = 1163.0
+theme_override_constants/separation = 0
 
 [node name="Start Button" type="TextureButton" parent="Control/VBoxContainer" unique_id=55349908]
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_cp0ys")
 texture_hover = ExtResource("3_yhxw7")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Settings Button" type="TextureButton" parent="Control/VBoxContainer" unique_id=1123345009]
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("4_trj04")
 texture_hover = ExtResource("5_16hvj")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Quit Button" type="TextureButton" parent="Control/VBoxContainer" unique_id=1143827654]
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("6_vr1f0")
 texture_hover = ExtResource("7_t1dhk")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="Control/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]

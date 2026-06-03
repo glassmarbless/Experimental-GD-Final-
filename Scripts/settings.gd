@@ -71,8 +71,10 @@ func _on_volume_adjust_value_changed(value: float) -> void:
 	$"Control/Settings Holder/Volume Holder/Slider Holder/max".text = current
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
-
+	if SettingsManager.previous_scene != "":
+		get_tree().change_scene_to_file(SettingsManager.previous_scene)
+	else:
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func _on_music_adjust_value_changed(value: float) -> void:
 	SettingsManager.music_volume = value

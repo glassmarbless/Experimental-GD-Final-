@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cp3jt27rch6pv" path="res://Scripts/player.gd" id="1_rpqav"]
 [ext_resource type="PackedScene" uid="uid://cwgg6mhvnwoj" path="res://Assets/Art/TEMP ART (NOTE REMOVE THIS ONECE MERGED)/instrument.fbx" id="2_kyqiw"]
-[ext_resource type="AudioStream" uid="uid://xb1el86ahdb3" path="res://Assets/Art/Audio/Notes/freesound_community-gockenspiel_a-102771.mp3" id="3_megsn"]
+[ext_resource type="AudioStream" path="res://Assets/Art/Audio/Notes/freesound_community-gockenspiel_a-102771.mp3" id="3_megsn"]
 [ext_resource type="Script" uid="uid://cvfuius4jvsf5" path="res://Scripts/Music.gd" id="3_yoq75"]
-[ext_resource type="AudioStream" uid="uid://khevrodvqemb" path="res://Assets/Art/Audio/Notes/Firefly_audio_B_note_from_woodwind_instrument_variation4.wav" id="4_yoq75"]
-[ext_resource type="AudioStream" uid="uid://dnxij1nb1pg4i" path="res://Assets/Art/Audio/Notes/Piano Note C Sound Effect.mp3" id="5_ksbbd"]
-[ext_resource type="AudioStream" uid="uid://dxq1r6e63ya08" path="res://Assets/Art/Audio/Notes/Firefly_audio_D_note_from_instrument_variation2.wav" id="6_glx4g"]
-[ext_resource type="AudioStream" uid="uid://bxsqutscku1se" path="res://Assets/Art/Audio/Notes/Firefly_audio_E_note_from_instrument_variation2.wav" id="7_miouo"]
-[ext_resource type="AudioStream" uid="uid://di6rcdve2o710" path="res://Assets/Art/Audio/Notes/Firefly_audio_F_note_from_synth_instrument_variation4.wav" id="8_o3h8g"]
-[ext_resource type="AudioStream" uid="uid://b6w71x7if35xd" path="res://Assets/Art/Audio/Notes/Firefly_audio_G_note_from_synth_instrument_variation4.wav" id="9_1e7my"]
+[ext_resource type="AudioStream" uid="uid://dlmndce86ull5" path="res://Assets/Art/Audio/Notes/B-Note.wav" id="4_yoq75"]
+[ext_resource type="AudioStream" uid="uid://f38w3stonjcg" path="res://Assets/Art/Audio/Notes/C synth note.wav" id="5_ksbbd"]
+[ext_resource type="AudioStream" uid="uid://e8hg06767m1j" path="res://Assets/Art/Audio/Notes/D-Note.wav" id="6_glx4g"]
+[ext_resource type="AudioStream" uid="uid://c2agw0nvp53ah" path="res://Assets/Art/Audio/Notes/E-note.wav" id="7_miouo"]
+[ext_resource type="AudioStream" uid="uid://3gtu8y60j0kn" path="res://Assets/Art/Audio/Notes/F synth note.wav" id="8_o3h8g"]
+[ext_resource type="AudioStream" uid="uid://iv8svpur854k" path="res://Assets/Art/Audio/Notes/G-Note.wav" id="9_1e7my"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qbkls"]
 

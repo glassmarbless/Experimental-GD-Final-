@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://j3smwe6y8c57"]
+
+[ext_resource type="VideoStream" uid="uid://4n28yp8paasg" path="res://Assets/Art/main menu/space scene/main-menu-ship-loop.ogv" id="1_b226h"]
+[ext_resource type="Script" uid="uid://dq1sfsk0ufhyo" path="res://Scripts/intro.gd" id="1_duh1u"]
+[ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="3_alxvg"]
+
+[node name="Intro" type="Node2D" unique_id=513773974]
+script = ExtResource("1_duh1u")
+
+[node name="Control" type="Control" parent="." unique_id=1736570195]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="VideoStreamPlayer" parent="Control" unique_id=1616729195]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_b226h")
+autoplay = true
+loop = true
+
+[node name="Story" type="Label" parent="Control" unique_id=1449388218]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 103.0
+offset_right = 1735.0
+offset_bottom = 824.0
+theme_override_fonts/font = ExtResource("3_alxvg")
+theme_override_font_sizes/font_size = 40
+autowrap_mode = 2
+
+[node name="Continue" type="Label" parent="Control" unique_id=1708450511]
+layout_mode = 0
+offset_left = 1171.0
+offset_top = 903.0
+offset_right = 1810.0
+offset_bottom = 988.0
+theme_override_fonts/font = ExtResource("3_alxvg")
+theme_override_font_sizes/font_size = 40
+text = "Press E to continue..."
+
+[node name="Flash Timer" type="Timer" parent="Control" unique_id=1484130530]

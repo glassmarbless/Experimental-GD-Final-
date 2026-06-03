@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cqdhon7wu6d1i" path="res://Scripts/settings.gd" id="1_4geyq"]
 [ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="2_i44u3"]
+[ext_resource type="Texture2D" uid="uid://4njmdtca206j" path="res://Assets/UI/image.png" id="2_j2dne"]
+[ext_resource type="Texture2D" uid="uid://dwaq1ruremma" path="res://Assets/UI/logo/switch_on.png" id="3_aaqfp"]
+[ext_resource type="Texture2D" uid="uid://c7eymyjasjmow" path="res://Assets/UI/logo/switch_off.png" id="4_j2dne"]
 
 [node name="Settings" type="Node2D" unique_id=374255142]
 script = ExtResource("1_4geyq")
@@ -12,14 +15,14 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Background placeholder" type="ColorRect" parent="Control" unique_id=989321915]
+[node name="Background" type="TextureRect" parent="Control" unique_id=1644977115]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_j2dne")
 
 [node name="Name" type="Label" parent="Control" unique_id=1034888578]
 layout_mode = 0
@@ -133,10 +136,16 @@ theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 40
 text = "Off"
 
-[node name="Fullscreen Button" type="CheckButton" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=328249833]
+[node name="Fullscreen Button" type="TextureButton" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=1047231792]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
-expand_icon = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("4_j2dne")
+texture_pressed = ExtResource("3_aaqfp")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="On" type="Label" parent="Control/Settings Holder/Fullscreen Holder/HBoxContainer" unique_id=625180548]
 layout_mode = 2
@@ -229,6 +238,23 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 40
 text = "Music Player"
+horizontal_alignment = 1
+
+[node name="Journal" type="HSplitContainer" parent="Control/Settings Holder/VBoxContainer" unique_id=148717041]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="Control/Settings Holder/VBoxContainer/Journal" unique_id=1714800204]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "J"
+
+[node name="Action" type="Label" parent="Control/Settings Holder/VBoxContainer/Journal" unique_id=2101223529]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "Journal"
 horizontal_alignment = 1
 
 [node name="Back Button" type="Button" parent="Control" unique_id=1814467244]
