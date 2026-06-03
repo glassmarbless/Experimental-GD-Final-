@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi6omco3r2kuh"
+path="res://.godot/imported/diff_style-low-spaceship-rumble-195722 (1).mp3-10b826608c4c487616a1059346327ca1.mp3str"
+
+[deps]
+
+source_file="res://Assets/Art/Audio/Ambience/diff_style-low-spaceship-rumble-195722 (1).mp3"
+dest_files=["res://.godot/imported/diff_style-low-spaceship-rumble-195722 (1).mp3-10b826608c4c487616a1059346327ca1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

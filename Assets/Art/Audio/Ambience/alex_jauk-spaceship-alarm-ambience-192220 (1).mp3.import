@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3pf2n3b4ln4a"
+path="res://.godot/imported/alex_jauk-spaceship-alarm-ambience-192220 (1).mp3-ca6cdc15940063681ccae6e725bc67dd.mp3str"
+
+[deps]
+
+source_file="res://Assets/Art/Audio/Ambience/alex_jauk-spaceship-alarm-ambience-192220 (1).mp3"
+dest_files=["res://.godot/imported/alex_jauk-spaceship-alarm-ambience-192220 (1).mp3-ca6cdc15940063681ccae6e725bc67dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c28hq3kuaglva"
+path="res://.godot/imported/jci21-spaceship-ambient-sfx-164114 (1).mp3-d5ffc620b092a325c62fbdd5013fef08.mp3str"
+
+[deps]
+
+source_file="res://Assets/Art/Audio/Ambience/jci21-spaceship-ambient-sfx-164114 (1).mp3"
+dest_files=["res://.godot/imported/jci21-spaceship-ambient-sfx-164114 (1).mp3-d5ffc620b092a325c62fbdd5013fef08.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

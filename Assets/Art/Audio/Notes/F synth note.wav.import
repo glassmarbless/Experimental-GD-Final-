@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cerfldu2xdgc6"
+path="res://.godot/imported/F synth note.wav-e7b698f28dc0ad5e171c185d48909bc8.sample"
+
+[deps]
+
+source_file="res://Assets/Art/Audio/Notes/F synth note.wav"
+dest_files=["res://.godot/imported/F synth note.wav-e7b698f28dc0ad5e171c185d48909bc8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
