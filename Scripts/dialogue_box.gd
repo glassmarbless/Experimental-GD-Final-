@@ -1,7 +1,7 @@
 extends Control
 
 @onready var grid = $Message/Notes
-@onready var text_lable = $Message/Translation
+@onready var text_lable = $Message/Text
 
 var images = {}
 

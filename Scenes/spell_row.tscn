@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dh8ymqtq6yyqi"]
+
+[ext_resource type="Script" uid="uid://c7tj3u4eeqnos" path="res://Scripts/spell_row.gd" id="1_2a2qd"]
+[ext_resource type="Texture2D" uid="uid://c3qwyru6df4qt" path="res://Assets/Art/in game/journal combos/Home.png" id="1_5ktbu"]
+[ext_resource type="Texture2D" uid="uid://db4rawt7v6ggt" path="res://Assets/UI/buttons/play (1).png" id="2_2a2qd"]
+[ext_resource type="Texture2D" uid="uid://dwx2su21w6y5s" path="res://Assets/UI/buttons/journal play.png" id="3_6gp7r"]
+[ext_resource type="Texture2D" uid="uid://cbhpy4nwkkrky" path="res://Assets/UI/buttons/journal play hover.png" id="4_j2v3x"]
+
+[node name="Spell Row" type="HBoxContainer" unique_id=1450757345]
+theme_override_constants/separation = 40
+script = ExtResource("1_2a2qd")
+
+[node name="Image" type="TextureRect" parent="." unique_id=942657293]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+texture = ExtResource("1_5ktbu")
+
+[node name="Input Area" type="VBoxContainer" parent="." unique_id=2077837730]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Input" type="LineEdit" parent="Input Area" unique_id=2041840137]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+placeholder_text = "Input your guesses"
+alignment = 1
+flat = true
+
+[node name="Line" type="TextureRect" parent="Input Area" unique_id=207615950]
+custom_minimum_size = Vector2(170, 5)
+layout_mode = 2
+texture = ExtResource("2_2a2qd")
+expand_mode = 1
+
+[node name="Play_Sound" type="TextureButton" parent="." unique_id=1049990154]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_6gp7r")
+texture_hover = ExtResource("4_j2v3x")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1520061664]
+
+[connection signal="pressed" from="Play_Sound" to="." method="_on_play_sound_pressed"]

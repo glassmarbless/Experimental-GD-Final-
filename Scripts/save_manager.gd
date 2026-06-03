@@ -23,7 +23,7 @@ func create_new_save(slot: int):
 		"current_position": Vector3(1,2,1),
 		"tutorial": false,
 		"unlocked_rooms": [],
-		"unlocked_notes": [],
+		"unlocked_spells": [],
 		"choices_made": [],
 		"created_time": Time.get_datetime_string_from_system(),
 		"last_save_time": get_formatted_time()

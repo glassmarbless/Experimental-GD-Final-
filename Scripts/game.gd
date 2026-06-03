@@ -9,7 +9,7 @@ extends Node2D
 var progress = 0
 var tutorial = false
 var rooms = []
-var notes = []
+var spells = []
 var choices = []
 var save_time = Time.get_datetime_string_from_system()
 
@@ -78,7 +78,7 @@ func save_game_progress():
 	data["current_position"] = player.global_position
 	data["tutorial"] = tutorial
 	data["unlocked_rooms"] = rooms
-	data["unlocked_notes"] = notes
+	data["unlocked_spells"] = spells
 	data["choices_made"] = choices
 	data["last_save_time"] = save_time
 	SaveManager.save_game(SaveManager.current_slot, data)
@@ -91,6 +91,8 @@ func load_game_progress():
 
 	if data.is_empty():
 		return
+	
+	SpellManager.load_from_save(data)
 
 	if data.has("current_position"):
 		player.global_position = data["current_position"]

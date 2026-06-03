@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b30lsf3fhuy5b"]
+
+[ext_resource type="Script" uid="uid://b3ltvs4o84ckh" path="res://Scripts/journal.gd" id="1_4xnl1"]
+[ext_resource type="Texture2D" uid="uid://d14y1jsbmvj4" path="res://Assets/UI/journaal/journal NEW.png" id="1_v70kj"]
+[ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="2_dt6pw"]
+
+[node name="Journal" type="Control" unique_id=143678753]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xnl1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1717625637]
+custom_minimum_size = Vector2(600, 800)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v70kj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="Background" unique_id=1435858352]
+layout_mode = 0
+offset_left = -46.0
+offset_top = -9.0
+offset_right = 273.0
+offset_bottom = 61.0
+theme_override_colors/font_shadow_color = Color(0.39594817, 0.99969536, 0.99969536, 0.19607843)
+theme_override_colors/font_outline_color = Color(0.39607844, 1, 1, 0.3137255)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("2_dt6pw")
+theme_override_font_sizes/font_size = 24
+text = "Journal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background" unique_id=1508522589]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 71.0
+offset_right = 512.0
+offset_bottom = 782.0
+
+[node name="Spell Holder" type="VBoxContainer" parent="Background/ScrollContainer" unique_id=1279099212]
+layout_mode = 2
+theme_override_constants/separation = 20
