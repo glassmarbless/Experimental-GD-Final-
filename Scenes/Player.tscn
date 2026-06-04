@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://b6kn0rk0qv5k7"]
 
 [ext_resource type="Script" uid="uid://cp3jt27rch6pv" path="res://Scripts/player.gd" id="1_rpqav"]
-[ext_resource type="PackedScene" uid="uid://cwgg6mhvnwoj" path="res://Assets/Art/TEMP ART (NOTE REMOVE THIS ONECE MERGED)/instrument.fbx" id="2_kyqiw"]
-[ext_resource type="AudioStream" path="res://Assets/Art/Audio/Notes/freesound_community-gockenspiel_a-102771.mp3" id="3_megsn"]
+[ext_resource type="PackedScene" uid="uid://bf2ds12wlakam" path="res://Assets/Art/instrument/Untitled.glb" id="2_yoq75"]
 [ext_resource type="Script" uid="uid://cvfuius4jvsf5" path="res://Scripts/Music.gd" id="3_yoq75"]
 [ext_resource type="AudioStream" uid="uid://dlmndce86ull5" path="res://Assets/Art/Audio/Notes/B-Note.wav" id="4_yoq75"]
 [ext_resource type="AudioStream" uid="uid://f38w3stonjcg" path="res://Assets/Art/Audio/Notes/C synth note.wav" id="5_ksbbd"]
@@ -48,12 +47,12 @@ layer = 10
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18, 0)
 
 [node name="ScreenMesh" type="MeshInstance3D" parent="Player/Camera3D/SpellBookHolder" unique_id=667305391]
-transform = Transform3D(0.58551884, 0, 0, 0, 0.41340184, 0, 0, 0, 0.9999993, -0.022968411, 1.351571, -0.6340684)
+transform = Transform3D(0.6735455, 0, 0, 0, 0.47224557, 0, 0, 0, 0.9999993, -0.022968411, 1.2802404, -0.54907036)
 mesh = SubResource("QuadMesh_yoq75")
 surface_material_override/0 = SubResource("StandardMaterial3D_glx4g")
 
-[node name="instrument" parent="Player/Camera3D/SpellBookHolder" unique_id=201476531 instance=ExtResource("2_kyqiw")]
-transform = Transform3D(1.3080734, 0, 0, 0, -6.2841195e-08, -1.4269508, 0, 1.437639, -6.2374e-08, -0.021538273, 1.1709976, -0.7885654)
+[node name="instrument2" parent="Player/Camera3D/SpellBookHolder" unique_id=111536154 instance=ExtResource("2_yoq75")]
+transform = Transform3D(1.49, 0, 0, 0, -1.13343624e-07, -1.49, 0, 2.593, -6.512997e-08, -0.02244258, 1.1418297, -0.81318617)
 
 [node name="ScreenViewport" type="SubViewport" parent="Player/Camera3D/SpellBookHolder" unique_id=1899853634]
 size = Vector2i(1024, 512)
@@ -131,7 +130,6 @@ offset_bottom = 23.0
 text = "TEST"
 
 [node name="Audio1" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=357333731]
-stream = ExtResource("3_megsn")
 
 [node name="Audio2" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1610900317]
 stream = ExtResource("4_yoq75")

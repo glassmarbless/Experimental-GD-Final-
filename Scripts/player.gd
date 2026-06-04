@@ -69,6 +69,9 @@ func _ready() -> void:
 	spell_book_holder.position = Vector3(0, -1.15, -0.6)
 	spell_book_holder.rotation_degrees = Vector3.ZERO
 	spell_book_holder.scale = Vector3(1, 1, 1)
+	
+	spell_display.add_theme_font_size_override("font_size", 72)
+	spell_display.add_theme_color_override("font_color", Color(""))
 
 	spell_display.text = ""
 
@@ -231,7 +234,7 @@ func draw_notes() -> void:
 		note_line.name = "NoteLine"
 		note_line.points = note_positions
 		note_line.width = 3.0
-		note_line.default_color = Color.WHITE
+		note_line.default_color = Color.DIM_GRAY
 		note_line.z_index = 0
 		notes_layer.add_child(note_line)
 
@@ -244,7 +247,7 @@ func draw_notes() -> void:
 		note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		note.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		note.add_theme_font_size_override("font_size", 64)
-		note.add_theme_color_override("font_color", Color.WHITE)
+		note.add_theme_color_override("font_color", Color.BLACK)
 		note.size = Vector2(80, 80)
 		note.z_index = 1
 
