@@ -19,10 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://2hyyc6wqpqlo" path="res://Assets/Art/in game/alien/frames/alien (5).PNG" id="8_wk4wq"]
 [ext_resource type="Script" uid="uid://c2fpwwcgnmxkv" path="res://Scripts/Alien.gd" id="9_knj11"]
 [ext_resource type="PackedScene" uid="uid://b30lsf3fhuy5b" path="res://Scenes/journal.tscn" id="9_yj6jl"]
-[ext_resource type="Script" uid="uid://c4anlfm50wtlb" path="res://Scripts/Puzzle/PuzzlePanel.gd" id="11_igmvf"]
 [ext_resource type="Texture2D" uid="uid://dmuydr8s726k0" path="res://Assets/UI/journaal/journal notifs popout.png" id="12_8sn34"]
 [ext_resource type="Script" uid="uid://cobcpelvqx04l" path="res://Scripts/journal_notification.gd" id="12_l03nh"]
-[ext_resource type="PackedScene" uid="uid://bjfncwl0r4ry7" path="res://Scenes/Puzzles/LightPuzzle.tscn" id="12_m1xr4"]
 [ext_resource type="Texture2D" uid="uid://0q02vrkuvrcv" path="res://Assets/Map/blue_nebulae_1.png" id="13_knj11"]
 [ext_resource type="PackedScene" uid="uid://bm522hd5wtsua" path="res://Assets/Map/SHIP VER 3/SHIP 23.glb" id="14_knj11"]
 [ext_resource type="PackedScene" uid="uid://dxtxy4mkc2k24" path="res://Assets/Map/doors/Untitled.glb" id="14_wj3oi"]
@@ -30,6 +28,7 @@
 [ext_resource type="Script" uid="uid://pg6ovomx8jeu" path="res://Scripts/Button.gd" id="15_wj3oi"]
 [ext_resource type="PackedScene" uid="uid://dco5tl280hlbk" path="res://Assets/Art/in game/Body/TornCorpse.fbx" id="17_wncpl"]
 [ext_resource type="PackedScene" uid="uid://bf2ds12wlakam" path="res://Assets/Art/instrument/Untitled.glb" id="18_idgkg"]
+[ext_resource type="Texture2D" uid="uid://c3a25b475cj2h" path="res://Assets/Art/TEMP ART (NOTE REMOVE THIS ONECE MERGED)/508768d6-8be4-4261-bb53-6f3ea5fbffee (1).png" id="31_7bjmd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igmvf"]
 shader = ExtResource("1_m1xr4")
@@ -85,6 +84,12 @@ sky = SubResource("Sky_n7dph")
 [sub_resource type="BoxShape3D" id="BoxShape3D_wj3oi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_knj11"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_lm1e3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0cvf"]
+transparency = 1
+albedo_texture = ExtResource("31_7bjmd")
 
 [node name="Game" type="Node2D" unique_id=615139604]
 visible = false
@@ -206,11 +211,9 @@ player_path = NodePath("../Player")
 transform = Transform3D(4.581656, 0, 0, 0, 5.522497, 0, 0, 0, 3.7993016, -0.9573593, 0, 0.1538564)
 shape = SubResource("CapsuleShape3D_dypsy")
 
-[node name="PuzzlePanel" type="Area3D" parent="." unique_id=1264168522 node_paths=PackedStringArray("canvas_layer") groups=["puzzle_panel"]]
+[node name="PuzzlePanel" type="Area3D" parent="." unique_id=1264168522 groups=["puzzle_panel"]]
 transform = Transform3D(-5.2466508e-08, 0, 0.29118088, 0, 0.9809854, 0, -1.2002938, 0, -1.2727921e-08, 13.142629, 3.3282955, -4.2947717)
-script = ExtResource("11_igmvf")
-puzzle_scene = ExtResource("12_m1xr4")
-canvas_layer = NodePath("../CanvasLayer")
+script = ExtResource("15_wj3oi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzlePanel" unique_id=2058848580]
 mesh = SubResource("BoxMesh_igmvf")
@@ -226,7 +229,7 @@ light_energy = 0.159
 environment = SubResource("Environment_wncpl")
 
 [node name="SHIP 23" parent="." unique_id=647020656 instance=ExtResource("14_knj11")]
-transform = Transform3D(256.215, 0, 0, 0, 256.215, 0, 0, 0, 256.215, 0.038869858, 4.7683716e-07, -0.037078857)
+transform = Transform3D(256.215, 0, 0, 0, 256.215, 0, 0, 0, 256.215, 0.03644657, -1.4305115e-06, -0.021989822)
 
 [node name="TornCorpse2" parent="." unique_id=1708092207 instance=ExtResource("17_wncpl")]
 transform = Transform3D(1.9647408, -1.5681583e-07, 1.5836332e-07, 1.7176309e-07, 1.7937639, 1.5836332e-07, -1.717631e-07, -1.568158e-07, 1.8114653, 1.9009066, -1.4545677, 17.40895)
@@ -427,6 +430,11 @@ mesh = SubResource("BoxMesh_igmvf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button4" unique_id=839798252]
 shape = SubResource("BoxShape3D_m1xr4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1731616672]
+transform = Transform3D(-2.1540973e-07, 0, 3.52, 0, 2.8159997, 0, -4.928, 0, -1.538641e-07, 0.53173375, 4.260151, 12.422237)
+mesh = SubResource("QuadMesh_lm1e3")
+surface_material_override/0 = SubResource("StandardMaterial3D_i0cvf")
 
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]

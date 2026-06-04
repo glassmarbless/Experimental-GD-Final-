@@ -41,6 +41,9 @@ func get_spell_image(spell_name: String) -> Texture2D:
 
 	return load(spell_images[spell_name])
 
+func discover_all_spells() -> void:
+	for spell_name in spell_images.keys():
+		discover_spell(spell_name)
 
 func load_from_save(data: Dictionary) -> void:
 	discovered_spells.clear()
