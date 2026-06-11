@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="1_euaqh"]
 [ext_resource type="Script" uid="uid://c60w1edjlre4s" path="res://Scripts/ending.gd" id="1_pnrs6"]
+[ext_resource type="AudioStream" uid="uid://slm3j66j6iaf" path="res://Assets/Art/Audio/Music/space_music_ending.wav" id="3_stqtc"]
 
 [node name="Bad End" type="Node2D" unique_id=1563645436]
 script = ExtResource("1_pnrs6")
@@ -54,3 +55,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_euaqh")
 theme_override_font_sizes/font_size = 40
 text = "Press any key to continue"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1805136807]
+stream = ExtResource("3_stqtc")
+autoplay = true
+bus = &"Music"

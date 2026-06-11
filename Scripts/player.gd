@@ -29,7 +29,7 @@ var entered_dialogue := false
 	5: $Camera3D/SpellBookHolder/Audio5,
 	6: $Camera3D/SpellBookHolder/Audio6,
 	7: $Camera3D/SpellBookHolder/Audio7,
-	#8: $Camera3D/SpellBookHolder/Audio8
+	8: $Camera3D/SpellBookHolder/Audio8
 }
 
 var has_spell_book := true
@@ -97,6 +97,9 @@ func _process(delta: float) -> void:
 				print("This is an alien")
 				alien_int.emit()
 				entered_dialogue = true
+			if obj.is_in_group("spell_image"):
+				print("this is spell on wall")
+				SpellManager.discover_spell("home")
 		else:
 			print("Hit object is NOT in puzzle_panel group")
 	#else:

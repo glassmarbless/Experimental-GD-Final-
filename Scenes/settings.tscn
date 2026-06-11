@@ -5,6 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://4njmdtca206j" path="res://Assets/UI/image.png" id="2_j2dne"]
 [ext_resource type="Texture2D" uid="uid://dwaq1ruremma" path="res://Assets/UI/logo/switch_on.png" id="3_aaqfp"]
 [ext_resource type="Texture2D" uid="uid://c7eymyjasjmow" path="res://Assets/UI/logo/switch_off.png" id="4_j2dne"]
+[ext_resource type="Texture2D" uid="uid://bwchxcaedv7jy" path="res://Assets/UI/buttons/blank_button.png" id="6_6vr2p"]
+[ext_resource type="Texture2D" uid="uid://us61k5eog1xu" path="res://Assets/UI/buttons/blank_Hover.png" id="7_f60ng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vr2p"]
+bg_color = Color(0.85490197, 0.95686275, 0.95686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f60ng"]
+bg_color = Color(0.8156863, 0.8039216, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bismi"]
+texture = ExtResource("6_6vr2p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgw85"]
+texture = ExtResource("7_f60ng")
 
 [node name="Settings" type="Node2D" unique_id=374255142]
 script = ExtResource("1_4geyq")
@@ -38,7 +52,7 @@ text = "Settings"
 [node name="Settings Holder" type="GridContainer" parent="Control" unique_id=1375286562]
 layout_mode = 0
 offset_left = 313.0
-offset_top = 246.0
+offset_top = 180.0
 offset_right = 1513.0
 offset_bottom = 874.0
 theme_override_constants/h_separation = 150
@@ -82,11 +96,18 @@ theme_override_font_sizes/font_size = 40
 text = "Resolution"
 
 [node name="Resolution Button" type="OptionButton" parent="Control/Settings Holder/Resolution Holder" unique_id=487232469]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.3137255, 0.3529412, 0.5647059, 1)
+theme_override_colors/font_hover_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
 theme_override_fonts/font = ExtResource("2_i44u3")
 theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_6vr2p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f60ng")
+alignment = 1
+icon_alignment = 1
 expand_icon = true
 allow_reselect = true
 
@@ -240,6 +261,23 @@ theme_override_font_sizes/font_size = 40
 text = "Music Player"
 horizontal_alignment = 1
 
+[node name="Play Notes" type="HSplitContainer" parent="Control/Settings Holder/VBoxContainer" unique_id=976268715]
+layout_mode = 2
+
+[node name="Key" type="Label" parent="Control/Settings Holder/VBoxContainer/Play Notes" unique_id=474247081]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "Num 1-8"
+
+[node name="Action" type="Label" parent="Control/Settings Holder/VBoxContainer/Play Notes" unique_id=816736599]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 40
+text = "Play Notes"
+horizontal_alignment = 1
+
 [node name="Journal" type="HSplitContainer" parent="Control/Settings Holder/VBoxContainer" unique_id=148717041]
 layout_mode = 2
 
@@ -259,11 +297,16 @@ horizontal_alignment = 1
 
 [node name="Back Button" type="Button" parent="Control" unique_id=1814467244]
 layout_mode = 0
-offset_left = 778.0
-offset_top = 887.0
-offset_right = 1012.0
-offset_bottom = 983.0
-theme_override_font_sizes/font_size = 36
+offset_left = 787.0
+offset_top = 895.0
+offset_right = 1103.0
+offset_bottom = 1062.0
+theme_override_colors/font_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
+theme_override_colors/font_hover_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("2_i44u3")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_bismi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rgw85")
 text = "Back"
 
 [connection signal="value_changed" from="Control/Settings Holder/Volume Holder/Slider Holder/Volume Adjust" to="." method="_on_volume_adjust_value_changed"]

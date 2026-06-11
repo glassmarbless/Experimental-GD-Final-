@@ -22,12 +22,14 @@
 [ext_resource type="Texture2D" uid="uid://dmuydr8s726k0" path="res://Assets/UI/journaal/journal notifs popout.png" id="12_8sn34"]
 [ext_resource type="Script" uid="uid://cobcpelvqx04l" path="res://Scripts/journal_notification.gd" id="12_l03nh"]
 [ext_resource type="Texture2D" uid="uid://0q02vrkuvrcv" path="res://Assets/Map/blue_nebulae_1.png" id="13_knj11"]
+[ext_resource type="AudioStream" uid="uid://gorer8dbh0qq" path="res://Assets/Art/Audio/Interactions/universfield-new-notification-022-370046 (1).mp3" id="14_7bjmd"]
 [ext_resource type="PackedScene" uid="uid://bm522hd5wtsua" path="res://Assets/Map/SHIP VER 3/SHIP 23.glb" id="14_knj11"]
 [ext_resource type="PackedScene" uid="uid://dxtxy4mkc2k24" path="res://Assets/Map/doors/Untitled.glb" id="14_wj3oi"]
 [ext_resource type="Script" uid="uid://cxl0jdc4dybmy" path="res://Scripts/RisingDoor.gd" id="15_n7dph"]
 [ext_resource type="Script" uid="uid://pg6ovomx8jeu" path="res://Scripts/Button.gd" id="15_wj3oi"]
 [ext_resource type="PackedScene" uid="uid://dco5tl280hlbk" path="res://Assets/Art/in game/Body/TornCorpse.fbx" id="17_wncpl"]
 [ext_resource type="PackedScene" uid="uid://bf2ds12wlakam" path="res://Assets/Art/instrument/Untitled.glb" id="18_idgkg"]
+[ext_resource type="AudioStream" uid="uid://cqdsiyayc2mjy" path="res://Assets/Art/Audio/Music/space_music_2.wav" id="30_l03nh"]
 [ext_resource type="Texture2D" uid="uid://c3a25b475cj2h" path="res://Assets/Art/TEMP ART (NOTE REMOVE THIS ONECE MERGED)/508768d6-8be4-4261-bb53-6f3ea5fbffee (1).png" id="31_7bjmd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igmvf"]
@@ -90,6 +92,9 @@ sky = SubResource("Sky_n7dph")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0cvf"]
 transparency = 1
 albedo_texture = ExtResource("31_7bjmd")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8sn34"]
+size = Vector3(0.91485596, 0.81884766, 4.2103806)
 
 [node name="Game" type="Node2D" unique_id=615139604]
 visible = false
@@ -194,6 +199,9 @@ texture_normal = ExtResource("12_8sn34")
 ignore_texture_size = true
 stretch_mode = 4
 
+[node name="notification" type="AudioStreamPlayer" parent="UI/Journal Notification" unique_id=833387318]
+stream = ExtResource("14_7bjmd")
+
 [node name="Player" parent="." unique_id=954489223 groups=["player"] instance=ExtResource("2_gl6un")]
 transform = Transform3D(1.2562125, 0, 0, 0, 1.2562125, 0, 0, 0, 1.2562125, 0.3791263, 3.091133, 35.473232)
 
@@ -229,7 +237,7 @@ light_energy = 0.159
 environment = SubResource("Environment_wncpl")
 
 [node name="SHIP 23" parent="." unique_id=647020656 instance=ExtResource("14_knj11")]
-transform = Transform3D(256.215, 0, 0, 0, 256.215, 0, 0, 0, 256.215, 0.03644657, -1.4305115e-06, -0.021989822)
+transform = Transform3D(256.215, 0, 0, 0, 256.215, 0, 0, 0, 256.215, 0.033118248, -1.9073486e-06, -0.000626564)
 
 [node name="TornCorpse2" parent="." unique_id=1708092207 instance=ExtResource("17_wncpl")]
 transform = Transform3D(1.9647408, -1.5681583e-07, 1.5836332e-07, 1.7176309e-07, 1.7937639, 1.5836332e-07, -1.717631e-07, -1.568158e-07, 1.8114653, 1.9009066, -1.4545677, 17.40895)
@@ -431,10 +439,21 @@ mesh = SubResource("BoxMesh_igmvf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Button4" unique_id=839798252]
 shape = SubResource("BoxShape3D_m1xr4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1731616672]
-transform = Transform3D(-2.1540973e-07, 0, 3.52, 0, 2.8159997, 0, -4.928, 0, -1.538641e-07, 0.53173375, 4.260151, 12.422237)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1731616672 groups=["spell_image"]]
+transform = Transform3D(-2.1540973e-07, 0, 3.52, 0, 2.8159997, 0, -4.928, 0, -1.538641e-07, 0.53173375, 2.833717, 12.422237)
 mesh = SubResource("QuadMesh_lm1e3")
 surface_material_override/0 = SubResource("StandardMaterial3D_i0cvf")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=66817243 groups=["spell_image"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=1209895887 groups=["spell_image"]]
+transform = Transform3D(0.8475335, 0, 0, 0, 0.6459506, 0, -1.0658141e-14, 0, 0.13805847, 0.007009506, 0.05850768, 0.2847568)
+shape = SubResource("BoxShape3D_8sn34")
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=331004244]
+stream = ExtResource("30_l03nh")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UI/Pause Panel/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]

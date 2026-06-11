@@ -297,3 +297,4 @@ func good_end():
 
 func _on_notification_button_pressed() -> void:
 	toggle_journal()
+	notification.visible = false

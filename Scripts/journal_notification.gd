@@ -5,9 +5,16 @@ extends Control
 
 var tween: Tween
 
-func show_notification():
-	visible = true
+func _ready() -> void:
+	if not SpellManager.notification.is_connected(show_notification):
+		SpellManager.notification.connect(show_notification)
 
+func show_notification():
+	print("journal notification triggered")
+	visible = true
+	
+	$notification.play()
+	
 	var screen_width = get_viewport_rect().size.x
 	var hidden_x = screen_width
 	var shown_x = screen_width - size.x - 5

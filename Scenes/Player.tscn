@@ -3,12 +3,14 @@
 [ext_resource type="Script" uid="uid://cp3jt27rch6pv" path="res://Scripts/player.gd" id="1_rpqav"]
 [ext_resource type="PackedScene" uid="uid://bf2ds12wlakam" path="res://Assets/Art/instrument/Untitled.glb" id="2_yoq75"]
 [ext_resource type="Script" uid="uid://cvfuius4jvsf5" path="res://Scripts/Music.gd" id="3_yoq75"]
+[ext_resource type="AudioStream" uid="uid://cklqqkbfqsrfu" path="res://Assets/Art/Audio/Notes/A synth note.wav" id="4_ksbbd"]
 [ext_resource type="AudioStream" uid="uid://dlmndce86ull5" path="res://Assets/Art/Audio/Notes/B-Note.wav" id="4_yoq75"]
 [ext_resource type="AudioStream" uid="uid://f38w3stonjcg" path="res://Assets/Art/Audio/Notes/C synth note.wav" id="5_ksbbd"]
 [ext_resource type="AudioStream" uid="uid://e8hg06767m1j" path="res://Assets/Art/Audio/Notes/D-Note.wav" id="6_glx4g"]
 [ext_resource type="AudioStream" uid="uid://c2agw0nvp53ah" path="res://Assets/Art/Audio/Notes/E-note.wav" id="7_miouo"]
 [ext_resource type="AudioStream" uid="uid://3gtu8y60j0kn" path="res://Assets/Art/Audio/Notes/F synth note.wav" id="8_o3h8g"]
 [ext_resource type="AudioStream" uid="uid://iv8svpur854k" path="res://Assets/Art/Audio/Notes/G-Note.wav" id="9_1e7my"]
+[ext_resource type="AudioStream" uid="uid://4xhwm5a1v8f4" path="res://Assets/Art/Audio/Notes/space music 1 - C very low.wav" id="11_ksbbd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qbkls"]
 
@@ -130,24 +132,28 @@ offset_bottom = 23.0
 text = "TEST"
 
 [node name="Audio1" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=357333731]
+stream = ExtResource("5_ksbbd")
 
 [node name="Audio2" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1610900317]
 stream = ExtResource("4_yoq75")
 
 [node name="Audio3" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1035227329]
-stream = ExtResource("5_ksbbd")
+stream = ExtResource("4_ksbbd")
 
 [node name="Audio4" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1401129322]
-stream = ExtResource("6_glx4g")
+stream = ExtResource("9_1e7my")
 
 [node name="Audio5" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1319410588]
-stream = ExtResource("7_miouo")
-
-[node name="Audio6" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=873414613]
 stream = ExtResource("8_o3h8g")
 
+[node name="Audio6" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=873414613]
+stream = ExtResource("7_miouo")
+
 [node name="Audio7" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1530064373]
-stream = ExtResource("9_1e7my")
+stream = ExtResource("6_glx4g")
+
+[node name="Audio8" type="AudioStreamPlayer" parent="Player/Camera3D/SpellBookHolder" unique_id=1003293185]
+stream = ExtResource("11_ksbbd")
 
 [node name="InteractRay" type="RayCast3D" parent="Player/Camera3D" unique_id=2052395022]
 target_position = Vector3(0, 0, -5)

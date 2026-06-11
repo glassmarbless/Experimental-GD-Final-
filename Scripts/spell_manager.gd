@@ -2,6 +2,7 @@ extends Node
 
 #template: "hello": "res://Assets/UI/spells/hello.png",
 signal spell_discovered(spell_name: String)
+signal notification
 var discovered_spells: Array = []
 var spell_images := {
 	"door": "res://Assets/Art/in game/journal combos/door (1).png",
@@ -22,6 +23,7 @@ func discover_spell(spell_name: String) -> void:
 	print("New spell discovered: ", spell_name)
 
 	spell_discovered.emit(spell_name)
+	notification.emit()
 
 	# Save into current save slot
 	if SaveManager.current_slot > 0:
@@ -57,54 +59,65 @@ func load_from_save(data: Dictionary) -> void:
 		#"res://Assets/Audio/Notes/note_e.mp3",
 		#"res://Assets/Audio/Notes/note_g.mp3"
 	#],
+	
+	#"1234": "Me",
+	#"2222": "Friend",
+	#"1111": "Music",
+	#"2468": "Spaceship",
+	#"1818": "Home",
+	#"4321": "Door",
+	#"1357": "Open",
+	#"7777": "Yes",
+	#"8888": "No",
+	#"1212": "You"
 
 var spell_notes := {
 	"door": [
+		"res://Assets/Art/Audio/Notes/G-Note.wav",
 		"res://Assets/Art/Audio/Notes/A synth note.wav",
-		"res://Assets/Art/Audio/Notes/C synth note.wav",
-		"res://Assets/Art/Audio/Notes/F synth note.wav",
-		"res://Assets/Art/Audio/Notes/G-Note.wav"
+		"res://Assets/Art/Audio/Notes/B-Note.wav",
+		"res://Assets/Art/Audio/Notes/C synth note.wav"
 	],
 	"friend": [
-		"res://Assets/Art/Audio/Notes/A synth note.wav",
-		"res://Assets/Art/Audio/Notes/C synth note.wav",
-		"res://Assets/Art/Audio/Notes/F synth note.wav",
-		"res://Assets/Art/Audio/Notes/G-Note.wav"
+		"res://Assets/Art/Audio/Notes/B-Note.wav",
+		"res://Assets/Art/Audio/Notes/B-Note.wav",
+		"res://Assets/Art/Audio/Notes/B-Note.wav",
+		"res://Assets/Art/Audio/Notes/B-Note.wav"
 	]
 	,
 	"home": [
-		"res://Assets/Art/Audio/Notes/A synth note.wav",
 		"res://Assets/Art/Audio/Notes/C synth note.wav",
-		"res://Assets/Art/Audio/Notes/F synth note.wav",
-		"res://Assets/Art/Audio/Notes/G-Note.wav"
+		"res://Assets/Art/Audio/Notes/space music 1 - C very low.wav",
+		"res://Assets/Art/Audio/Notes/C synth note.wav",
+		"res://Assets/Art/Audio/Notes/space music 1 - C very low.wav"
 	]
 	,
 	"me": [
-		"res://Assets/Art/Audio/Notes/A synth note.wav",
 		"res://Assets/Art/Audio/Notes/C synth note.wav",
-		"res://Assets/Art/Audio/Notes/F synth note.wav",
+		"res://Assets/Art/Audio/Notes/B-Note.wav",
+		"res://Assets/Art/Audio/Notes/A synth note.wav",
 		"res://Assets/Art/Audio/Notes/G-Note.wav"
 	]
 	,
 	"no": [
-		"res://Assets/Art/Audio/Notes/A synth note.wav",
-		"res://Assets/Art/Audio/Notes/C synth note.wav",
-		"res://Assets/Art/Audio/Notes/F synth note.wav",
-		"res://Assets/Art/Audio/Notes/G-Note.wav"
+		"res://Assets/Art/Audio/Notes/space music 1 - C very low.wav",
+		"res://Assets/Art/Audio/Notes/space music 1 - C very low.wav",
+		"res://Assets/Art/Audio/Notes/space music 1 - C very low.wav",
+		"res://Assets/Art/Audio/Notes/space music 1 - C very low.wav"
 	]
 	,
 	"yes": [
-		"res://Assets/Art/Audio/Notes/A synth note.wav",
-		"res://Assets/Art/Audio/Notes/C synth note.wav",
-		"res://Assets/Art/Audio/Notes/F synth note.wav",
-		"res://Assets/Art/Audio/Notes/G-Note.wav"
+		"res://Assets/Art/Audio/Notes/D-Note.wav",
+		"res://Assets/Art/Audio/Notes/D-Note.wav",
+		"res://Assets/Art/Audio/Notes/D-Note.wav",
+		"res://Assets/Art/Audio/Notes/D-Note.wav"
 	]
 	,
 	"you": [
-		"res://Assets/Art/Audio/Notes/A synth note.wav",
 		"res://Assets/Art/Audio/Notes/C synth note.wav",
-		"res://Assets/Art/Audio/Notes/F synth note.wav",
-		"res://Assets/Art/Audio/Notes/G-Note.wav"
+		"res://Assets/Art/Audio/Notes/B-Note.wav",
+		"res://Assets/Art/Audio/Notes/C synth note.wav",
+		"res://Assets/Art/Audio/Notes/B-Note.wav"
 	]
 }
 

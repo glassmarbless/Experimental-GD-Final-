@@ -6,7 +6,6 @@ func _ready():
 	update_button_text()
 	pressed.connect(_on_pressed)
 
-
 func update_button_text():
 	if SaveManager.save_exists(slot_number):
 		var data = SaveManager.load_game(slot_number)
@@ -14,7 +13,6 @@ func update_button_text():
 		text = "Load Slot %d\n%s" % [slot_number, save_time]
 	else:
 		text = "New Game Slot %d" % slot_number
-
 
 func _on_pressed():
 	if SaveManager.save_exists(slot_number):
@@ -36,3 +34,7 @@ func _on_pressed():
 	else:
 		SaveManager.create_new_save(slot_number)
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+
+func _on_delete_button_pressed() -> void:
+	SaveManager.delete_save(slot_number)
+	update_button_text()

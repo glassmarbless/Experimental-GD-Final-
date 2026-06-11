@@ -17,6 +17,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void: 
 	if finished:
+		is_typing = false
 		await get_tree().create_timer(1).timeout
 		cont_text.visible = true
 
@@ -28,13 +29,11 @@ func type_text():
 			return
 		story_text.text += letter
 		await get_tree().create_timer(typing_speed).timeout
-	is_typing = false
 	finished = true
 
 func _input(event):
-	if event.is_action_pressed("interact") and is_typing and !finished:
+	if event.is_action_pressed("interact") and !finished:
 		story_text.text = full_text
-		is_typing = false
 		finished = true
-	if event.is_action_pressed("interact") and finished:
+	if event.is_action_pressed("interact") and !is_typing and finished:
 		get_tree().change_scene_to_file("res://Scenes/Game2.tscn")
