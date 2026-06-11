@@ -11,8 +11,7 @@ func _ready() -> void:
 
 	background.position = Vector2.ZERO
 	background.size = Vector2(1024, 512)
-	background.color = Color.RED
-
+	background.color = Color("c0fbff")
 	notes_layer.position = Vector2.ZERO
 	notes_layer.size = Vector2(1024, 512)
 
@@ -30,7 +29,9 @@ func make_staff_lines() -> void:
 
 	for i in range(5):
 		var line := ColorRect.new()
-		line.color = Color.WHITE
+		background.color = Color("bdfaff")
+
+		#line.color = Color.WHITE  
 		line.position = Vector2(100, 170 + i * 45)
 		line.size = Vector2(824, 4)
 		staff_lines.add_child(line)

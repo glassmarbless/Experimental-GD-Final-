@@ -6,6 +6,28 @@
 [ext_resource type="FontFile" uid="uid://c0ewuxxshxnr8" path="res://Assets/UI/Font/OCR A Extended Regular/OCR A Extended Regular.ttf" id="2_gfec3"]
 [ext_resource type="Script" uid="uid://b5kag5fu5kxta" path="res://Scripts/Save Buttons/slot_button_2.gd" id="3_fpea8"]
 [ext_resource type="Script" uid="uid://yr1ntpr60s3d" path="res://Scripts/Save Buttons/slot_button_3.gd" id="4_fc0cs"]
+[ext_resource type="Texture2D" uid="uid://bwchxcaedv7jy" path="res://Assets/UI/buttons/blank_button.png" id="5_khg7k"]
+[ext_resource type="Texture2D" uid="uid://us61k5eog1xu" path="res://Assets/UI/buttons/blank_Hover.png" id="6_82mu4"]
+[ext_resource type="Texture2D" uid="uid://caka45yiu3n3w" path="res://Assets/UI/buttons/back.png" id="9_84ex2"]
+[ext_resource type="Texture2D" uid="uid://b3p1eyewnp6uy" path="res://Assets/UI/buttons/back_Hover.png" id="10_nfutu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khg7k"]
+texture = ExtResource("5_khg7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82mu4"]
+texture = ExtResource("6_82mu4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_84ex2"]
+texture = ExtResource("5_khg7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nfutu"]
+texture = ExtResource("6_82mu4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xn66u"]
+texture = ExtResource("5_khg7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_38jwq"]
+texture = ExtResource("6_82mu4")
 
 [node name="Save Slots" type="Node2D" unique_id=1222709119]
 script = ExtResource("1_d2lhe")
@@ -52,46 +74,118 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -339.5
-offset_top = -250.5
-offset_right = 339.5
-offset_bottom = 250.5
+offset_left = -450.0
+offset_top = -331.0
+offset_right = 609.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 0
 
-[node name="Slot Button" type="Button" parent="Control/VBoxContainer" unique_id=595015642]
+[node name="1" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=2086205423]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/separation = 0
+
+[node name="Slot Button" type="Button" parent="Control/VBoxContainer/1" unique_id=595015642]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.3137255, 0.5372549, 1)
 theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_khg7k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_82mu4")
 script = ExtResource("2_fpea8")
 
-[node name="Slot Button2" type="Button" parent="Control/VBoxContainer" unique_id=1266375716]
+[node name="Delete Button" type="Button" parent="Control/VBoxContainer/1" unique_id=705607101]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.3137255, 0.5372549, 1)
+theme_override_fonts/font = ExtResource("2_gfec3")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_84ex2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nfutu")
+text = "Delete"
+
+[node name="2" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=539191302]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/separation = 0
+
+[node name="Slot Button2" type="Button" parent="Control/VBoxContainer/2" unique_id=1266375716]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.3137255, 0.5372549, 1)
 theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_xn66u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_38jwq")
 script = ExtResource("3_fpea8")
 
-[node name="Slot Button3" type="Button" parent="Control/VBoxContainer" unique_id=203944898]
+[node name="Delete Button2" type="Button" parent="Control/VBoxContainer/2" unique_id=854579938]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.3137255, 0.5372549, 1)
+theme_override_fonts/font = ExtResource("2_gfec3")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_84ex2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nfutu")
+text = "Delete"
+
+[node name="3" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1267149575]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/separation = 0
+
+[node name="Slot Button3" type="Button" parent="Control/VBoxContainer/3" unique_id=203944898]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.3137255, 0.5372549, 1)
 theme_override_fonts/font = ExtResource("2_gfec3")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxTexture_xn66u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_38jwq")
 script = ExtResource("4_fc0cs")
 
-[node name="Back Button" type="Button" parent="Control" unique_id=1184185480]
-layout_mode = 0
-offset_left = 855.0
-offset_top = 887.0
-offset_right = 1089.0
-offset_bottom = 983.0
+[node name="Delete Button3" type="Button" parent="Control/VBoxContainer/3" unique_id=1610359124]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25882354, 0.29411766, 0.5254902, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.3137255, 0.5372549, 1)
 theme_override_fonts/font = ExtResource("2_gfec3")
-theme_override_font_sizes/font_size = 36
-text = "Back"
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_84ex2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nfutu")
+text = "Delete"
 
+[node name="Back Button" type="TextureButton" parent="Control" unique_id=97798526]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -203.5
+offset_top = -220.0
+offset_right = 203.5
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("9_84ex2")
+texture_hover = ExtResource("10_nfutu")
+
+[connection signal="pressed" from="Control/VBoxContainer/1/Delete Button" to="Control/VBoxContainer/1/Slot Button" method="_on_delete_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/2/Delete Button2" to="Control/VBoxContainer/2/Slot Button2" method="_on_delete_button_2_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/3/Delete Button3" to="Control/VBoxContainer/3/Slot Button3" method="_on_delete_button_3_pressed"]
 [connection signal="pressed" from="Control/Back Button" to="." method="_on_back_button_pressed"]

@@ -22,3 +22,7 @@ func _on_pressed():
 	else:
 		SaveManager.create_new_save(slot_number)
 		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
+
+func _on_delete_button_3_pressed() -> void:
+	SaveManager.delete_save(slot_number)
+	update_button_text()
